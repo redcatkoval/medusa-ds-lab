@@ -81,37 +81,25 @@ export const UserGeneralSection = ({ user }: UserGeneralSectionProps) => {
       <div className="flex items-center justify-between px-6 py-4">
         <Heading>{user.email}</Heading>
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  label: t("actions.edit"),
-                  to: "edit",
-                  icon: <PencilSquare />,
-                },
-              ],
+              label: t("actions.edit"),
+              to: "edit",
+              icon: <PencilSquare />,
             },
             ...(canResetPassword
               ? [
                   {
-                    actions: [
-                      {
-                        label: t("users.copyResetPasswordLink"),
-                        onClick: handleCopyResetPasswordLink,
-                        icon: <Link />,
-                      },
-                    ],
+                    label: t("users.copyResetPasswordLink"),
+                    onClick: handleCopyResetPasswordLink,
+                    icon: <Link />,
                   },
                 ]
               : []),
             {
-              actions: [
-                {
-                  label: t("actions.delete"),
-                  onClick: handleDeleteUser,
-                  icon: <Trash />,
-                },
-              ],
+              label: t("actions.delete"),
+              onClick: handleDeleteUser,
+              icon: <Trash />,
             },
           ]}
         />

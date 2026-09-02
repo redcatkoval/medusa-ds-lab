@@ -40,24 +40,16 @@ export const PriceListGeneralSection = ({
         <div className="flex items-center gap-x-4">
           <StatusBadge color={color}>{text}</StatusBadge>
           <ActionMenu
-            groups={[
+            actions={[
               {
-                actions: [
-                  {
-                    label: t("actions.edit"),
-                    to: "edit",
-                    icon: <PencilSquare />,
-                  },
-                ],
+                label: t("actions.edit"),
+                to: "edit",
+                icon: <PencilSquare />,
               },
               {
-                actions: [
-                  {
-                    label: t("actions.delete"),
-                    onClick: handleDelete,
-                    icon: <Trash />,
-                  },
-                ],
+                label: t("actions.delete"),
+                onClick: handleDelete,
+                icon: <Trash />,
               },
             ]}
           />

@@ -88,15 +88,11 @@ export const ProductMediaSection = ({ product }: ProductMedisaSectionProps) => {
       <div className="flex items-center justify-between px-6 py-4">
         <Heading level="h2">{t("products.media.label")}</Heading>
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  label: t("actions.editImages"),
-                  to: "media?view=edit",
-                  icon: <PencilSquare />,
-                },
-              ],
+              label: t("actions.editImages"),
+              to: "media?view=edit",
+              icon: <PencilSquare />,
             },
           ]}
         />

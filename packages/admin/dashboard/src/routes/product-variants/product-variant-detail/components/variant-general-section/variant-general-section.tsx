@@ -62,37 +62,25 @@ export function VariantGeneralSection({ variant }: VariantGeneralSectionProps) {
         </div>
         <div className="flex items-center gap-x-4">
           <ActionMenu
-            groups={[
+            actions={[
               {
-                actions: [
-                  {
-                    label: t("actions.edit"),
-                    to: "edit",
-                    icon: <PencilSquare />,
-                  },
-                ],
+                label: t("actions.edit"),
+                to: "edit",
+                icon: <PencilSquare />,
               },
               ...(isTranslationsEnabled
                 ? [
                     {
-                      actions: [
-                        {
-                          label: t("translations.actions.manage"),
-                          to: `/settings/translations/edit?reference=product_variant&reference_id=${variant.id}`,
-                          icon: <GlobeEurope />,
-                        },
-                      ],
+                      label: t("translations.actions.manage"),
+                      to: `/settings/translations/edit?reference=product_variant&reference_id=${variant.id}`,
+                      icon: <GlobeEurope />,
                     },
                   ]
                 : []),
               {
-                actions: [
-                  {
-                    label: t("actions.delete"),
-                    onClick: handleDelete,
-                    icon: <Trash />,
-                  },
-                ],
+                label: t("actions.delete"),
+                onClick: handleDelete,
+                icon: <Trash />,
               },
             ]}
           />

@@ -210,33 +210,29 @@ export const OrderSummarySection = ({
               </Button>
             ) : (
               <ActionMenu
-                groups={[
-                  {
-                    actions: receivableReturns.map((r) => {
-                      let id = r.id
-                      let returnType = "Return"
+                actions={receivableReturns.map((r) => {
+                  let id = r.id
+                  let returnType = "Return"
 
-                      if (r.exchange_id) {
-                        id = r.exchange_id
-                        returnType = "Exchange"
-                      }
+                  if (r.exchange_id) {
+                    id = r.exchange_id
+                    returnType = "Exchange"
+                  }
 
-                      if (r.claim_id) {
-                        id = r.claim_id
-                        returnType = "Claim"
-                      }
+                  if (r.claim_id) {
+                    id = r.claim_id
+                    returnType = "Claim"
+                  }
 
-                      return {
-                        label: t("orders.returns.receive.receiveItems", {
-                          id: `#${id.slice(-7)}`,
-                          returnType,
-                        }),
-                        icon: <ArrowLongRight />,
-                        to: `/orders/${order.id}/returns/${r.id}/receive`,
-                      }
+                  return {
+                    label: t("orders.returns.receive.receiveItems", {
+                      id: `#${id.slice(-7)}`,
+                      returnType,
                     }),
-                  },
-                ]}
+                    icon: <ArrowLongRight />,
+                    to: `/orders/${order.id}/returns/${r.id}/receive`,
+                  }
+                })}
               >
                 <Button variant="secondary" size="small">
                   {t("orders.returns.receive.action")}
@@ -311,69 +307,61 @@ const Header = ({
     <div className="flex items-center justify-between px-6 py-4">
       <Heading level="h2">{t("fields.summary")}</Heading>
       <ActionMenu
-        groups={[
+        actions={[
           {
-            actions: [
-              {
-                label: t(
-                  isOrderEditPending
-                    ? "orders.summary.editOrderContinue"
-                    : "orders.summary.editOrder"
-                ),
-                to: `/orders/${order.id}/edits`,
-                icon: <PencilSquare />,
-                disabled:
-                  order.status === "canceled" ||
-                  (orderPreview?.order_change &&
-                    orderPreview?.order_change?.change_type !== "edit") ||
-                  (orderPreview?.order_change?.change_type === "edit" &&
-                    orderPreview?.order_change?.status === "requested"),
-              },
-            ],
+            label: t(
+              isOrderEditPending
+                ? "orders.summary.editOrderContinue"
+                : "orders.summary.editOrder"
+            ),
+            to: `/orders/${order.id}/edits`,
+            icon: <PencilSquare />,
+            disabled:
+              order.status === "canceled" ||
+              (orderPreview?.order_change &&
+                orderPreview?.order_change?.change_type !== "edit") ||
+              (orderPreview?.order_change?.change_type === "edit" &&
+                orderPreview?.order_change?.status === "requested"),
           },
           {
-            actions: [
-              {
-                label: t("orders.returns.create"),
-                to: `/orders/${order.id}/returns`,
-                icon: <ArrowUturnLeft />,
-                disabled:
-                  shouldDisableReturn ||
-                  isOrderEditActive ||
-                  !!orderPreview?.order_change?.exchange_id ||
-                  !!orderPreview?.order_change?.claim_id,
-              },
-              {
-                label:
-                  orderPreview?.order_change?.id &&
-                  orderPreview?.order_change?.exchange_id
-                    ? t("orders.exchanges.manage")
-                    : t("orders.exchanges.create"),
-                to: `/orders/${order.id}/exchanges`,
-                icon: <ArrowPath />,
-                disabled:
-                  shouldDisableReturn ||
-                  isOrderEditActive ||
-                  (!!orderPreview?.order_change?.return_id &&
-                    !orderPreview?.order_change?.exchange_id) ||
-                  !!orderPreview?.order_change?.claim_id,
-              },
-              {
-                label:
-                  orderPreview?.order_change?.id &&
-                  orderPreview?.order_change?.claim_id
-                    ? t("orders.claims.manage")
-                    : t("orders.claims.create"),
-                to: `/orders/${order.id}/claims`,
-                icon: <ExclamationCircle />,
-                disabled:
-                  shouldDisableReturn ||
-                  isOrderEditActive ||
-                  (!!orderPreview?.order_change?.return_id &&
-                    !orderPreview?.order_change?.claim_id) ||
-                  !!orderPreview?.order_change?.exchange_id,
-              },
-            ],
+            label: t("orders.returns.create"),
+            to: `/orders/${order.id}/returns`,
+            icon: <ArrowUturnLeft />,
+            disabled:
+              shouldDisableReturn ||
+              isOrderEditActive ||
+              !!orderPreview?.order_change?.exchange_id ||
+              !!orderPreview?.order_change?.claim_id,
+          },
+          {
+            label:
+              orderPreview?.order_change?.id &&
+              orderPreview?.order_change?.exchange_id
+                ? t("orders.exchanges.manage")
+                : t("orders.exchanges.create"),
+            to: `/orders/${order.id}/exchanges`,
+            icon: <ArrowPath />,
+            disabled:
+              shouldDisableReturn ||
+              isOrderEditActive ||
+              (!!orderPreview?.order_change?.return_id &&
+                !orderPreview?.order_change?.exchange_id) ||
+              !!orderPreview?.order_change?.claim_id,
+          },
+          {
+            label:
+              orderPreview?.order_change?.id &&
+              orderPreview?.order_change?.claim_id
+                ? t("orders.claims.manage")
+                : t("orders.claims.create"),
+            to: `/orders/${order.id}/claims`,
+            icon: <ExclamationCircle />,
+            disabled:
+              shouldDisableReturn ||
+              isOrderEditActive ||
+              (!!orderPreview?.order_change?.return_id &&
+                !orderPreview?.order_change?.claim_id) ||
+              !!orderPreview?.order_change?.exchange_id,
           },
         ]}
       />

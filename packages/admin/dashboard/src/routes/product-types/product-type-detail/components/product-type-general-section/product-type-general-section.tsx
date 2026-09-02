@@ -24,37 +24,25 @@ export const ProductTypeGeneralSection = ({
     <Container className="flex items-center justify-between">
       <Heading>{productType.value}</Heading>
       <ActionMenu
-        groups={[
+        actions={[
           {
-            actions: [
-              {
-                label: t("actions.edit"),
-                icon: <PencilSquare />,
-                to: "edit",
-              },
-            ],
+            label: t("actions.edit"),
+            icon: <PencilSquare />,
+            to: "edit",
           },
           ...(isTranslationsEnabled
             ? [
                 {
-                  actions: [
-                    {
-                      label: t("translations.actions.manage"),
-                      to: `/settings/translations/edit?reference=product_type&reference_id=${productType.id}`,
-                      icon: <GlobeEurope />,
-                    },
-                  ],
+                  label: t("translations.actions.manage"),
+                  to: `/settings/translations/edit?reference=product_type&reference_id=${productType.id}`,
+                  icon: <GlobeEurope />,
                 },
               ]
             : []),
           {
-            actions: [
-              {
-                label: t("actions.delete"),
-                icon: <Trash />,
-                onClick: handleDelete,
-              },
-            ],
+            label: t("actions.delete"),
+            icon: <Trash />,
+            onClick: handleDelete,
           },
         ]}
       />

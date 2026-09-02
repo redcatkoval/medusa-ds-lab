@@ -28,38 +28,26 @@ const Header = () => {
     <div className="flex items-center justify-between px-6 py-4">
       <Heading level="h2">{t("fields.customer")}</Heading>
       <ActionMenu
-        groups={[
+        actions={[
           {
-            actions: [
-              {
-                label: t("transferOwnership.label"),
-                to: `transfer`,
-                icon: <ArrowPath />,
-              },
-            ],
+            label: t("transferOwnership.label"),
+            to: `transfer`,
+            icon: <ArrowPath />,
           },
           {
-            actions: [
-              {
-                label: t("addresses.shippingAddress.editLabel"),
-                to: "shipping-address",
-                icon: <FlyingBox />,
-              },
-              {
-                label: t("addresses.billingAddress.editLabel"),
-                to: "billing-address",
-                icon: <CurrencyDollar />,
-              },
-            ],
+            label: t("addresses.shippingAddress.editLabel"),
+            to: "shipping-address",
+            icon: <FlyingBox />,
           },
           {
-            actions: [
-              {
-                label: t("email.editLabel"),
-                to: `email`,
-                icon: <Envelope />,
-              },
-            ],
+            label: t("addresses.billingAddress.editLabel"),
+            to: "billing-address",
+            icon: <CurrencyDollar />,
+          },
+          {
+            label: t("email.editLabel"),
+            to: `email`,
+            icon: <Envelope />,
           },
         ]}
       />

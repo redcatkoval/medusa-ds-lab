@@ -151,15 +151,11 @@ export const StoreCurrencySection = ({ store }: StoreCurrencySectionProps) => {
       <div className="flex items-center justify-between px-6 py-4">
         <Heading level="h2">{t("store.currencies")}</Heading>
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  icon: <Plus />,
-                  label: t("actions.add"),
-                  to: "currencies",
-                },
-              ],
+              icon: <Plus />,
+              label: t("actions.add"),
+              to: "currencies",
             },
           ]}
         />
@@ -274,31 +270,23 @@ const CurrencyActions = ({
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              icon: preferencesMap.get(currency.code)?.is_tax_inclusive ? (
-                <XCircle />
-              ) : (
-                <CheckCircle />
-              ),
-              label: preferencesMap.get(currency.code)?.is_tax_inclusive
-                ? t("store.disableTaxInclusivePricing")
-                : t("store.enableTaxInclusivePricing"),
-              onClick: handleToggleTaxInclusivity,
-            },
-          ],
+          icon: preferencesMap.get(currency.code)?.is_tax_inclusive ? (
+            <XCircle />
+          ) : (
+            <CheckCircle />
+          ),
+          label: preferencesMap.get(currency.code)?.is_tax_inclusive
+            ? t("store.disableTaxInclusivePricing")
+            : t("store.enableTaxInclusivePricing"),
+          onClick: handleToggleTaxInclusivity,
         },
         {
-          actions: [
-            {
-              icon: <Trash />,
-              label: t("actions.remove"),
-              onClick: handleRemove,
-              disabled: currency.code === defaultCurrencyCode,
-            },
-          ],
+          icon: <Trash />,
+          label: t("actions.remove"),
+          onClick: handleRemove,
+          disabled: currency.code === defaultCurrencyCode,
         },
       ]}
     />

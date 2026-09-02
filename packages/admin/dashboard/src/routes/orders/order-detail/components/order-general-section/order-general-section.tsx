@@ -76,16 +76,12 @@ export const OrderGeneralSection = ({ order }: OrderGeneralSectionProps) => {
           <FulfillmentBadge order={order} />
         </div>
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  label: t("actions.cancel"),
-                  onClick: handleCancel,
-                  disabled: !!order.canceled_at,
-                  icon: <XCircle />,
-                },
-              ],
+              label: t("actions.cancel"),
+              onClick: handleCancel,
+              disabled: !!order.canceled_at,
+              icon: <XCircle />,
             },
           ]}
         />

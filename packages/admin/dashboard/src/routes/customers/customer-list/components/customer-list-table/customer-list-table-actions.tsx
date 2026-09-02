@@ -30,13 +30,5 @@ export const CustomerActions = ({
     return null
   }
 
-  return (
-    <ActionMenu
-      groups={[
-        {
-          actions,
-        },
-      ]}
-    />
-  )
+  return <ActionMenu actions={actions} />
 }

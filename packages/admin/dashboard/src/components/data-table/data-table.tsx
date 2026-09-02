@@ -54,12 +54,8 @@ type DataTableActionMenuActionProps = {
     }
 )
 
-type DataTableActionMenuGroupProps = {
-  actions: DataTableActionMenuActionProps[]
-}
-
 type DataTableActionMenuProps = {
-  groups: DataTableActionMenuGroupProps[]
+  actions: DataTableActionMenuActionProps[]
 }
 
 interface DataTableProps<TData> {
@@ -430,7 +426,7 @@ export const DataTable = <TData,>({
                 />
               </div>
             )}
-            {actionMenu && <ActionMenu variant="primary" {...actionMenu} />}
+            {actionMenu && <ActionMenu actions={actionMenu.actions} />}
             {actions && actions.length > 0 && (
               <DataTableActions actions={actions} />
             )}

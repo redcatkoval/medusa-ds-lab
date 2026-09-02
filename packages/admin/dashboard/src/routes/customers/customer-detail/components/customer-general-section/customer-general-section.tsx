@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom"
 
 import {
-  ActionGroup,
+  Action,
   ActionMenu,
 } from "../../../../../components/common/action-menu"
 import { useDeleteCustomer } from "../../../../../hooks/api/customers"
@@ -73,29 +73,21 @@ export const CustomerGeneralSection = ({
     })
   }
 
-  const groups: ActionGroup[] = []
+  const actions: Action[] = []
 
   if (canUpdate) {
-    groups.push({
-      actions: [
-        {
-          label: t("actions.edit"),
-          icon: <PencilSquare />,
-          to: "edit",
-        },
-      ],
+    actions.push({
+      label: t("actions.edit"),
+      icon: <PencilSquare />,
+      to: "edit",
     })
   }
 
   if (canDelete) {
-    groups.push({
-      actions: [
-        {
-          label: t("actions.delete"),
-          icon: <Trash />,
-          onClick: handleDelete,
-        },
-      ],
+    actions.push({
+      label: t("actions.delete"),
+      icon: <Trash />,
+      onClick: handleDelete,
     })
   }
 
@@ -105,7 +97,7 @@ export const CustomerGeneralSection = ({
         <Heading>{customer.email}</Heading>
         <div className="flex items-center gap-x-2">
           <StatusBadge color={statusColor}>{statusText}</StatusBadge>
-          {groups.length > 0 && <ActionMenu groups={groups} />}
+          {actions.length > 0 && <ActionMenu actions={actions} />}
         </div>
       </div>
       <div className="text-ui-fg-subtle grid grid-cols-2 items-center px-6 py-4">

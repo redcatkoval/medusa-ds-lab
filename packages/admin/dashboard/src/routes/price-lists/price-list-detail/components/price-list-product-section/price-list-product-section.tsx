@@ -115,20 +115,16 @@ export const PriceListProductSection = ({
       <div className="flex items-center justify-between px-6 py-4">
         <Heading level="h2">{t("priceLists.products.header")}</Heading>
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  label: t("priceLists.products.actions.addProducts"),
-                  to: "products/add",
-                  icon: <Plus />,
-                },
-                {
-                  label: t("priceLists.products.actions.editPrices"),
-                  to: "products/edit",
-                  icon: <PencilSquare />,
-                },
-              ],
+              label: t("priceLists.products.actions.addProducts"),
+              to: "products/add",
+              icon: <Plus />,
+            },
+            {
+              label: t("priceLists.products.actions.editPrices"),
+              to: "products/edit",
+              icon: <PencilSquare />,
             },
           ]}
         />
@@ -213,24 +209,16 @@ export const ProductRowAction = ({
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              icon: <PencilSquare />,
-              label: t("priceLists.products.actions.editPrices"),
-              to: `products/edit?ids[]=${product.id}`,
-            },
-          ],
+          icon: <PencilSquare />,
+          label: t("priceLists.products.actions.editPrices"),
+          to: `products/edit?ids[]=${product.id}`,
         },
         {
-          actions: [
-            {
-              icon: <Trash />,
-              label: t("actions.remove"),
-              onClick: handleDelete,
-            },
-          ],
+          icon: <Trash />,
+          label: t("actions.remove"),
+          onClick: handleDelete,
         },
       ]}
     />

@@ -34,15 +34,11 @@ export const ProductSalesChannelSection = ({
       <div className="flex items-center justify-between">
         <Heading level="h2">{t("fields.sales_channels")}</Heading>
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  label: t("actions.edit"),
-                  to: "sales-channels",
-                  icon: <PencilSquare />,
-                },
-              ],
+              label: t("actions.edit"),
+              to: "sales-channels",
+              icon: <PencilSquare />,
             },
           ]}
         />

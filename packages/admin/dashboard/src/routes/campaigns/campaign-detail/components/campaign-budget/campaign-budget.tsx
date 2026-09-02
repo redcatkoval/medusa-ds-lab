@@ -41,15 +41,11 @@ export const CampaignBudget = ({ campaign }: CampaignBudgetProps) => {
         </div>
 
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  icon: <PencilSquare />,
-                  label: t("actions.edit"),
-                  to: `edit-budget`,
-                },
-              ],
+              icon: <PencilSquare />,
+              label: t("actions.edit"),
+              to: `edit-budget`,
             },
           ]}
         />

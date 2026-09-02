@@ -57,24 +57,16 @@ const ApiKeySalesChannelRowActions = ({
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              label: t("actions.edit"),
-              icon: <PencilSquare />,
-              to: `/settings/sales-channels/${salesChannel.id}/edit`,
-            },
-          ],
+          label: t("actions.edit"),
+          icon: <PencilSquare />,
+          to: `/settings/sales-channels/${salesChannel.id}/edit`,
         },
         {
-          actions: [
-            {
-              label: t("actions.delete"),
-              icon: <Trash />,
-              onClick: handleDelete,
-            },
-          ],
+          label: t("actions.delete"),
+          icon: <Trash />,
+          onClick: handleDelete,
         },
       ]}
     />

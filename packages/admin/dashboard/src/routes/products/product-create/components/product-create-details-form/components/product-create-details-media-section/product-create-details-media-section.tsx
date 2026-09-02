@@ -233,24 +233,16 @@ const MediaItem = ({ field, onDelete, onMakeThumbnail }: MediaItemProps) => {
       </div>
       <div className="flex items-center gap-x-1">
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  label: t("products.media.makeThumbnail"),
-                  icon: <StackPerspective />,
-                  onClick: onMakeThumbnail,
-                },
-              ],
+              label: t("products.media.makeThumbnail"),
+              icon: <StackPerspective />,
+              onClick: onMakeThumbnail,
             },
             {
-              actions: [
-                {
-                  icon: <Trash />,
-                  label: t("actions.delete"),
-                  onClick: onDelete,
-                },
-              ],
+              icon: <Trash />,
+              label: t("actions.delete"),
+              onClick: onDelete,
             },
           ]}
         />
@@ -300,7 +292,7 @@ const MediaGridItemOverlay = ({ field }: { field: MediaField }) => {
         </div>
       </div>
       <div className="flex items-center gap-x-1">
-        <ActionMenu groups={[]} />
+        <ActionMenu actions={[]} />
         <IconButton
           type="button"
           size="small"

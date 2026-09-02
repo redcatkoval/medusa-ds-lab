@@ -23,24 +23,16 @@ export const ShippingOptionTypeGeneralSection = ({
       <div className="flex items-center justify-between  px-6 py-4">
         <Heading>{shippingOptionType.label}</Heading>
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  label: t("actions.edit"),
-                  icon: <PencilSquare />,
-                  to: "edit",
-                },
-              ],
+              label: t("actions.edit"),
+              icon: <PencilSquare />,
+              to: "edit",
             },
             {
-              actions: [
-                {
-                  label: t("actions.delete"),
-                  icon: <Trash />,
-                  onClick: handleDelete,
-                },
-              ],
+              label: t("actions.delete"),
+              icon: <Trash />,
+              onClick: handleDelete,
             },
           ]}
         />

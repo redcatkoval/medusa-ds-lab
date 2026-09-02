@@ -103,15 +103,11 @@ export const RegionCountrySection = ({ region }: RegionCountrySectionProps) => {
       <div className="flex items-center justify-between px-6 py-4">
         <Heading level="h2">{t("fields.countries")}</Heading>
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  label: t("regions.addCountries"),
-                  icon: <PlusMini />,
-                  to: "countries/add",
-                },
-              ],
+              label: t("regions.addCountries"),
+              icon: <PlusMini />,
+              to: "countries/add",
             },
           ]}
         />
@@ -189,15 +185,11 @@ const CountryActions = ({
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              label: t("actions.remove"),
-              onClick: handleRemove,
-              icon: <Trash />,
-            },
-          ],
+          label: t("actions.remove"),
+          onClick: handleRemove,
+          icon: <Trash />,
         },
       ]}
     />

@@ -21,37 +21,25 @@ export const ProductTypeRowActions = ({
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              label: t("actions.edit"),
-              icon: <PencilSquare />,
-              to: `/settings/product-types/${productType.id}/edit`,
-            },
-          ],
+          label: t("actions.edit"),
+          icon: <PencilSquare />,
+          to: `/settings/product-types/${productType.id}/edit`,
         },
         ...(isTranslationsEnabled
           ? [
               {
-                actions: [
-                  {
-                    icon: <GlobeEurope />,
-                    label: t("translations.actions.manage"),
-                    to: `/settings/translations/edit?reference=product_type&reference_id=${productType.id}`,
-                  },
-                ],
+                icon: <GlobeEurope />,
+                label: t("translations.actions.manage"),
+                to: `/settings/translations/edit?reference=product_type&reference_id=${productType.id}`,
               },
             ]
           : []),
         {
-          actions: [
-            {
-              label: t("actions.delete"),
-              icon: <Trash />,
-              onClick: handleDelete,
-            },
-          ],
+          label: t("actions.delete"),
+          icon: <Trash />,
+          onClick: handleDelete,
         },
       ]}
     />

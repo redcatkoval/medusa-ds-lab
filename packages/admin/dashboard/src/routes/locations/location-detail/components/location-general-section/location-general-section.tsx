@@ -163,31 +163,22 @@ function ShippingOption({
         {isStoreOption ? t("general.store") : t("general.admin")}
       </Badge>
       <ActionMenu
-        groups={[
+        actions={[
           {
-            actions: [
-              {
-                icon: <PencilSquare />,
-                label: t("stockLocations.shippingOptions.edit.action"),
-                to: `/settings/locations/${locationId}/fulfillment-set/${fulfillmentSetId}/service-zone/${option.service_zone_id}/shipping-option/${option.id}/edit`,
-              },
-              {
-                label: t("stockLocations.shippingOptions.pricing.action"),
-                icon: <CurrencyDollar />,
-                disabled:
-                  option.price_type === ShippingOptionPriceType.Calculated,
-                to: `/settings/locations/${locationId}/fulfillment-set/${fulfillmentSetId}/service-zone/${option.service_zone_id}/shipping-option/${option.id}/pricing`,
-              },
-            ],
+            icon: <PencilSquare />,
+            label: t("stockLocations.shippingOptions.edit.action"),
+            to: `/settings/locations/${locationId}/fulfillment-set/${fulfillmentSetId}/service-zone/${option.service_zone_id}/shipping-option/${option.id}/edit`,
           },
           {
-            actions: [
-              {
-                label: t("actions.delete"),
-                icon: <Trash />,
-                onClick: handleDelete,
-              },
-            ],
+            label: t("stockLocations.shippingOptions.pricing.action"),
+            icon: <CurrencyDollar />,
+            disabled: option.price_type === ShippingOptionPriceType.Calculated,
+            to: `/settings/locations/${locationId}/fulfillment-set/${fulfillmentSetId}/service-zone/${option.service_zone_id}/shipping-option/${option.id}/pricing`,
+          },
+          {
+            label: t("actions.delete"),
+            icon: <Trash />,
+            onClick: handleDelete,
           },
         ]}
       />
@@ -407,29 +398,21 @@ function ServiceZone({
             />
           </IconButton>
           <ActionMenu
-            groups={[
+            actions={[
               {
-                actions: [
-                  {
-                    label: t("actions.edit"),
-                    icon: <PencilSquare />,
-                    to: `/settings/locations/${locationId}/fulfillment-set/${fulfillmentSetId}/service-zone/${zone.id}/edit`,
-                  },
-                  {
-                    label: t("stockLocations.serviceZones.manageAreas.action"),
-                    icon: <Map />,
-                    to: `/settings/locations/${locationId}/fulfillment-set/${fulfillmentSetId}/service-zone/${zone.id}/areas`,
-                  },
-                ],
+                label: t("actions.edit"),
+                icon: <PencilSquare />,
+                to: `/settings/locations/${locationId}/fulfillment-set/${fulfillmentSetId}/service-zone/${zone.id}/edit`,
               },
               {
-                actions: [
-                  {
-                    label: t("actions.delete"),
-                    icon: <Trash />,
-                    onClick: handleDelete,
-                  },
-                ],
+                label: t("stockLocations.serviceZones.manageAreas.action"),
+                icon: <Map />,
+                to: `/settings/locations/${locationId}/fulfillment-set/${fulfillmentSetId}/service-zone/${zone.id}/areas`,
+              },
+              {
+                label: t("actions.delete"),
+                icon: <Trash />,
+                onClick: handleDelete,
               },
             ]}
           />
@@ -514,36 +497,24 @@ function FulfillmentSet(props: FulfillmentSetProps) {
     })
   }
 
-  const groups = fulfillmentSet
+  const actions = fulfillmentSet
     ? [
         {
-          actions: [
-            {
-              icon: <Plus />,
-              label: t("stockLocations.serviceZones.create.action"),
-              to: `/settings/locations/${locationId}/fulfillment-set/${fulfillmentSet.id}/service-zones/create`,
-            },
-          ],
+          icon: <Plus />,
+          label: t("stockLocations.serviceZones.create.action"),
+          to: `/settings/locations/${locationId}/fulfillment-set/${fulfillmentSet.id}/service-zones/create`,
         },
         {
-          actions: [
-            {
-              icon: <Trash />,
-              label: t("actions.disable"),
-              onClick: handleDelete,
-            },
-          ],
+          icon: <Trash />,
+          label: t("actions.disable"),
+          onClick: handleDelete,
         },
       ]
     : [
         {
-          actions: [
-            {
-              icon: <Plus />,
-              label: t("actions.enable"),
-              onClick: handleCreate,
-            },
-          ],
+          icon: <Plus />,
+          label: t("actions.enable"),
+          onClick: handleCreate,
         },
       ]
 
@@ -561,7 +532,7 @@ function FulfillmentSet(props: FulfillmentSetProps) {
               )}
             </StatusBadge>
 
-            <ActionMenu groups={groups} />
+            <ActionMenu actions={actions} />
           </div>
         </div>
 
@@ -635,29 +606,21 @@ const Actions = ({ location }: { location: HttpTypes.AdminStockLocation }) => {
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              icon: <PencilSquare />,
-              label: t("actions.edit"),
-              to: `edit`,
-            },
-            {
-              icon: <ArchiveBox />,
-              label: t("stockLocations.edit.viewInventory"),
-              to: `/inventory?location_id=${location.id}`,
-            },
-          ],
+          icon: <PencilSquare />,
+          label: t("actions.edit"),
+          to: `edit`,
         },
         {
-          actions: [
-            {
-              icon: <Trash />,
-              label: t("actions.delete"),
-              onClick: handleDelete,
-            },
-          ],
+          icon: <ArchiveBox />,
+          label: t("stockLocations.edit.viewInventory"),
+          to: `/inventory?location_id=${location.id}`,
+        },
+        {
+          icon: <Trash />,
+          label: t("actions.delete"),
+          onClick: handleDelete,
         },
       ]}
     />

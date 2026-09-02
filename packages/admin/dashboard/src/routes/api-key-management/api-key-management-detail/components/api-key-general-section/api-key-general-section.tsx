@@ -132,19 +132,13 @@ export const ApiKeyGeneralSection = ({ apiKey }: ApiKeyGeneralSectionProps) => {
             </StatusBadge>
           </div>
           <ActionMenu
-            groups={[
+            actions={[
               {
-                actions: [
-                  {
-                    label: t("actions.edit"),
-                    icon: <PencilSquare />,
-                    to: "edit",
-                  },
-                ],
+                label: t("actions.edit"),
+                icon: <PencilSquare />,
+                to: "edit",
               },
-              {
-                actions: dangerousActions,
-              },
+              ...dangerousActions,
             ]}
           />
         </div>

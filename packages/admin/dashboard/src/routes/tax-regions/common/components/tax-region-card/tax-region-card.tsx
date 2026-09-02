@@ -184,34 +184,28 @@ const TaxRegionCardActions = ({
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         ...(showCreateDefaultTaxRate
           ? [
               {
-                actions: [
-                  {
-                    icon: <Plus />,
-                    label: t("taxRegions.fields.defaultTaxRate.action"),
-                    to: `tax-rates/create`,
-                  },
-                ],
+                icon: <Plus />,
+                label: t("taxRegions.fields.defaultTaxRate.action"),
+                to: `tax-rates/create`,
               },
             ]
           : []),
-        {
-          actions: [
-            !hasParent && {
-              icon: <PencilSquare />,
-              label: t("actions.edit"),
-              to: `/settings/tax-regions/${taxRegion.id}/edit`,
-            },
-            {
-              icon: <Trash />,
-              label: t("actions.delete"),
-              onClick: handleDelete,
-            },
-          ].filter(Boolean) as unknown as Action[],
-        },
+        ...([
+          !hasParent && {
+            icon: <PencilSquare />,
+            label: t("actions.edit"),
+            to: `/settings/tax-regions/${taxRegion.id}/edit`,
+          },
+          {
+            icon: <Trash />,
+            label: t("actions.delete"),
+            onClick: handleDelete,
+          },
+        ].filter(Boolean) as unknown as Action[]),
       ]}
     />
   )

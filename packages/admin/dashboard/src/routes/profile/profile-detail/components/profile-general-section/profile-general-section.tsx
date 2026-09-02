@@ -24,15 +24,11 @@ export const ProfileGeneralSection = ({ user }: ProfileGeneralSectionProps) => {
           </Text>
         </div>
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  label: t("actions.edit"),
-                  to: "edit",
-                  icon: <PencilSquare />,
-                },
-              ],
+              label: t("actions.edit"),
+              to: "edit",
+              icon: <PencilSquare />,
             },
           ]}
         />

@@ -230,33 +230,27 @@ function OrderEditItem({ item, currencyCode, orderId }: OrderEditItemProps) {
           </div>
 
           <ActionMenu
-            groups={[
+            actions={[
               {
-                actions: [
-                  {
-                    label: t("actions.duplicate"),
-                    onClick: onDuplicate,
-                    icon: <DocumentSeries />,
-                  },
-                ],
+                label: t("actions.duplicate"),
+                onClick: onDuplicate,
+                icon: <DocumentSeries />,
               },
-              {
-                actions: [
-                  !isItemRemoved
-                    ? {
-                        label: t("actions.remove"),
-                        onClick: onRemove,
-                        icon: <XCircle />,
-                        disabled:
-                          item.detail.fulfilled_quantity === item.quantity,
-                      }
-                    : {
-                        label: t("actions.undo"),
-                        onClick: onRemoveUndo,
-                        icon: <ArrowUturnLeft />,
-                      },
-                ].filter(Boolean),
-              },
+              ...[
+                !isItemRemoved
+                  ? {
+                      label: t("actions.remove"),
+                      onClick: onRemove,
+                      icon: <XCircle />,
+                      disabled:
+                        item.detail.fulfilled_quantity === item.quantity,
+                    }
+                  : {
+                      label: t("actions.undo"),
+                      onClick: onRemoveUndo,
+                      icon: <ArrowUturnLeft />,
+                    },
+              ].filter(Boolean),
             ]}
           />
         </div>

@@ -74,24 +74,16 @@ export const CampaignGeneralSection = ({
           </StatusBadge>
 
           <ActionMenu
-            groups={[
+            actions={[
               {
-                actions: [
-                  {
-                    icon: <PencilSquare />,
-                    label: t("actions.edit"),
-                    to: `/campaigns/${campaign.id}/edit`,
-                  },
-                ],
+                icon: <PencilSquare />,
+                label: t("actions.edit"),
+                to: `/campaigns/${campaign.id}/edit`,
               },
               {
-                actions: [
-                  {
-                    icon: <Trash />,
-                    label: t("actions.delete"),
-                    onClick: handleDelete,
-                  },
-                ],
+                icon: <Trash />,
+                label: t("actions.delete"),
+                onClick: handleDelete,
               },
             ]}
           />

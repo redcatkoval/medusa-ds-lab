@@ -305,33 +305,21 @@ const InviteActions = ({ invite }: { invite: HttpTypes.AdminInvite }) => {
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              icon: <ArrowPath />,
-              label: t("users.resendInvite"),
-              onClick: handleResend,
-            },
-          ],
+          icon: <ArrowPath />,
+          label: t("users.resendInvite"),
+          onClick: handleResend,
         },
         {
-          actions: [
-            {
-              icon: <Link />,
-              label: t("users.copyInviteLink"),
-              onClick: handleCopyInviteLink,
-            },
-          ],
+          icon: <Link />,
+          label: t("users.copyInviteLink"),
+          onClick: handleCopyInviteLink,
         },
         {
-          actions: [
-            {
-              icon: <Trash />,
-              label: t("actions.delete"),
-              onClick: handleDelete,
-            },
-          ],
+          icon: <Trash />,
+          label: t("actions.delete"),
+          onClick: handleDelete,
         },
       ]}
     />

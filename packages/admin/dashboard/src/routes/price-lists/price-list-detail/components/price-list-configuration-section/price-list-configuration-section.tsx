@@ -25,15 +25,11 @@ export const PriceListConfigurationSection = ({
           <CustomerGroupDisplay priceList={priceList} />
         </div>
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  label: t("actions.edit"),
-                  to: "configuration",
-                  icon: <PencilSquare />,
-                },
-              ],
+              label: t("actions.edit"),
+              to: "configuration",
+              icon: <PencilSquare />,
             },
           ]}
         />

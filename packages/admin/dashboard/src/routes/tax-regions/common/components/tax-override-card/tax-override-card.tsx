@@ -92,24 +92,16 @@ export const TaxOverrideCard = ({ taxRate }: TaxOverrideCardProps) => {
               : t("taxRegions.fields.isCombinable.false")}
           </StatusBadge>
           <ActionMenu
-            groups={[
+            actions={[
               {
-                actions: [
-                  {
-                    label: t("actions.edit"),
-                    icon: <PencilSquare />,
-                    to: `overrides/${taxRate.id}/edit`,
-                  },
-                ],
+                label: t("actions.edit"),
+                icon: <PencilSquare />,
+                to: `overrides/${taxRate.id}/edit`,
               },
               {
-                actions: [
-                  {
-                    label: t("actions.delete"),
-                    icon: <Trash />,
-                    onClick: handleDelete,
-                  },
-                ],
+                label: t("actions.delete"),
+                icon: <Trash />,
+                onClick: handleDelete,
               },
             ]}
           />

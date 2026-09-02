@@ -229,15 +229,7 @@ export const CustomerGroupRowActions = ({
     return null
   }
 
-  return (
-    <ActionMenu
-      groups={[
-        {
-          actions,
-        },
-      ]}
-    />
-  )
+  return <ActionMenu actions={actions} />
 }
 
 const columnHelper = createColumnHelper<HttpTypes.AdminCustomerGroup>()

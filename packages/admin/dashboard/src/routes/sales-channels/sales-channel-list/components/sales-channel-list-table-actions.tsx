@@ -50,29 +50,21 @@ export const SalesChannelListTableActions = ({
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              icon: <PencilSquare />,
-              label: t("actions.edit"),
-              onClick: () =>
-                navigate(`/settings/sales-channels/${salesChannel.id}/edit`),
-            },
-          ],
+          icon: <PencilSquare />,
+          label: t("actions.edit"),
+          onClick: () =>
+            navigate(`/settings/sales-channels/${salesChannel.id}/edit`),
         },
         {
-          actions: [
-            {
-              icon: <Trash />,
-              label: t("actions.delete"),
-              onClick: handleDelete,
-              disabled: salesChannel.is_default,
-              disabledTooltip: salesChannel.is_default
-                ? t("salesChannels.tooltip.cannotDeleteDefault")
-                : undefined,
-            },
-          ],
+          icon: <Trash />,
+          label: t("actions.delete"),
+          onClick: handleDelete,
+          disabled: salesChannel.is_default,
+          disabledTooltip: salesChannel.is_default
+            ? t("salesChannels.tooltip.cannotDeleteDefault")
+            : undefined,
         },
       ]}
     />

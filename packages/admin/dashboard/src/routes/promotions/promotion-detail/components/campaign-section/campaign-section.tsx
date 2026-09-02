@@ -64,13 +64,7 @@ export const CampaignSection = ({
       <div className="flex items-center justify-between">
         <Heading level="h2">{t("promotions.fields.campaign")}</Heading>
 
-        <ActionMenu
-          groups={[
-            {
-              actions,
-            },
-          ]}
-        />
+        <ActionMenu actions={actions} />
       </div>
 
       {campaign ? (

@@ -72,13 +72,9 @@ const ProductImportContent = () => {
 
   const uploadedFileActions = [
     {
-      actions: [
-        {
-          label: t("actions.delete"),
-          icon: <Trash />,
-          onClick: () => setFilename(undefined),
-        },
-      ],
+      label: t("actions.delete"),
+      icon: <Trash />,
+      onClick: () => setFilename(undefined),
     },
   ]
 

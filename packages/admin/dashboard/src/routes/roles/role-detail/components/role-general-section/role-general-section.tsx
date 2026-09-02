@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom"
 
 import {
-  ActionGroup,
+  Action,
   ActionMenu,
 } from "../../../../../components/common/action-menu"
 import { ListSummary } from "../../../../../components/common/list-summary"
@@ -90,35 +90,29 @@ export const RoleGeneralSection = ({ role }: RoleGeneralSectionProps) => {
   const canUpdate = hasPermission("rbac_role:update")
   const canDelete = hasPermission("rbac_role:delete")
 
-  const groups: ActionGroup[] = []
+  const actions: Action[] = []
 
   if (canUpdate) {
-    groups.push({
-      actions: [
-        {
-          icon: <PencilSquare />,
-          label: t("actions.edit"),
-          to: `edit`,
-        },
-        {
-          icon: <Key />,
-          label: t("roles.actions.managePermissions"),
-          to: `permissions`,
-        },
-      ],
-    })
+    actions.push(
+      {
+        icon: <PencilSquare />,
+        label: t("actions.edit"),
+        to: `edit`,
+      },
+      {
+        icon: <Key />,
+        label: t("roles.actions.managePermissions"),
+        to: `permissions`,
+      }
+    )
   }
 
   if (canDelete) {
-    groups.push({
-      actions: [
-        {
-          icon: <Trash />,
-          label: t("actions.delete"),
-          onClick: handleDelete,
-          disabled: isDeleting,
-        },
-      ],
+    actions.push({
+      icon: <Trash />,
+      label: t("actions.delete"),
+      onClick: handleDelete,
+      disabled: isDeleting,
     })
   }
 
@@ -126,7 +120,7 @@ export const RoleGeneralSection = ({ role }: RoleGeneralSectionProps) => {
     <Container className="divide-y p-0">
       <div className="flex items-center justify-between px-6 py-4">
         <Heading>{role.name}</Heading>
-        {groups.length && <ActionMenu groups={groups} />}
+        {actions.length && <ActionMenu actions={actions} />}
       </div>
       <SectionRow title={t("fields.description")} value={role.description} />
       {hasPermission("user:read") && (
