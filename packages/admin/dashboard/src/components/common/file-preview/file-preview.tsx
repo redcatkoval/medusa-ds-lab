@@ -44,7 +44,6 @@ export const FilePreview = ({
         </div>
 
         {loading && <Spinner className="animate-spin" />}
-        {!loading && actions && <ActionMenu actions={actions} />}
         {!loading && url && (
           <IconButton variant="transparent" asChild>
             <a href={url} download={filename ?? `${Date.now()}`}>
@@ -52,6 +51,7 @@ export const FilePreview = ({
             </a>
           </IconButton>
         )}
+        {!loading && actions && <ActionMenu actions={actions} />}
       </div>
     </div>
   )
