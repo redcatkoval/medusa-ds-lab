@@ -34,6 +34,7 @@ export const ProductTagListTableActions = ({
           : []),
         {
           icon: <Trash />,
+          destructive: true,
           label: t("actions.delete"),
           onClick: handleDelete,
         },

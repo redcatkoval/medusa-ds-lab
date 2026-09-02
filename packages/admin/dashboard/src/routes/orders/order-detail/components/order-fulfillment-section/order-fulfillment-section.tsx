@@ -354,6 +354,7 @@ const Fulfillment = ({
               {
                 label: t("actions.cancel"),
                 icon: <XCircle />,
+                destructive: true,
                 onClick: handleCancel,
                 disabled:
                   !!fulfillment.canceled_at ||

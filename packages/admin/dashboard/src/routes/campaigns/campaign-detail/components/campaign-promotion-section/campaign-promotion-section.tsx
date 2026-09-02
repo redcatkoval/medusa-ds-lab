@@ -164,6 +164,7 @@ export const PromotionActions = ({
         },
         {
           icon: <Trash />,
+          destructive: true,
           label: t("actions.remove"),
           onClick: handleRemove,
         },

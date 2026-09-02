@@ -50,6 +50,7 @@ export const PriceListGeneralSection = ({
                 label: t("actions.delete"),
                 onClick: handleDelete,
                 icon: <Trash />,
+                destructive: true,
               },
             ]}
           />

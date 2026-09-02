@@ -27,6 +27,7 @@ export const PriceListListTableActions = ({
           label: t("actions.delete"),
           onClick: handleDelete,
           icon: <Trash />,
+          destructive: true,
         },
       ]}
     />

@@ -238,6 +238,7 @@ const ProductListCellActions = ({
         },
         {
           icon: <Trash />,
+          destructive: true,
           label: t("actions.remove"),
           onClick: onRemove,
         },

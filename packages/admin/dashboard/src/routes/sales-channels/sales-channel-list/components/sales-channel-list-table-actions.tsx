@@ -59,6 +59,7 @@ export const SalesChannelListTableActions = ({
         },
         {
           icon: <Trash />,
+          destructive: true,
           label: t("actions.delete"),
           onClick: handleDelete,
           disabled: salesChannel.is_default,

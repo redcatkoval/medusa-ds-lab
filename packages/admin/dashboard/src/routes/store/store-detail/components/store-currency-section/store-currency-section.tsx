@@ -284,6 +284,7 @@ const CurrencyActions = ({
         },
         {
           icon: <Trash />,
+          destructive: true,
           label: t("actions.remove"),
           onClick: handleRemove,
           disabled: currency.code === defaultCurrencyCode,

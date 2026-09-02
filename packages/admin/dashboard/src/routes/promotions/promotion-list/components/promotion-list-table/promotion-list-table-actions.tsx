@@ -54,6 +54,7 @@ export const PromotionListTableActions = ({
         },
         {
           icon: <Trash />,
+          destructive: true,
           label: t("actions.delete"),
           onClick: handleDelete,
         },

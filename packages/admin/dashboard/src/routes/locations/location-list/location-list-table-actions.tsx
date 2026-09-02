@@ -59,6 +59,7 @@ export const LocationListTableActions = ({
         },
         {
           icon: <Trash />,
+          destructive: true,
           label: t("actions.delete"),
           onClick: handleDelete,
         },

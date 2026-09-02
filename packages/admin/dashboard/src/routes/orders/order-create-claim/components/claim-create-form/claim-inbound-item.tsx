@@ -127,6 +127,7 @@ function ClaimInboundItem({
                   label: t("actions.remove"),
                   onClick: onRemove,
                   icon: <XCircle />,
+                  destructive: true,
                 },
               ].filter(Boolean) as Action[]
             }

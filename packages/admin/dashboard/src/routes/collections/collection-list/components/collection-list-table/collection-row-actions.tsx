@@ -58,6 +58,7 @@ export const CollectionRowActions = ({
           label: t("actions.delete"),
           onClick: handleDeleteCollection,
           icon: <Trash />,
+          destructive: true,
           disabled: !collection.id,
         },
       ]}

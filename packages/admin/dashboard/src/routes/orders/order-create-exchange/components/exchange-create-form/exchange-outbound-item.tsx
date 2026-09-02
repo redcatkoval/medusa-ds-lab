@@ -124,6 +124,7 @@ function ExchangeOutboundItem({
                 label: t("actions.remove"),
                 onClick: onRemove,
                 icon: <XCircle />,
+                destructive: true,
               },
             ].filter(Boolean)}
           />

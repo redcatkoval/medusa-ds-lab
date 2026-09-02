@@ -241,6 +241,7 @@ const MediaItem = ({ field, onDelete, onMakeThumbnail }: MediaItemProps) => {
             },
             {
               icon: <Trash />,
+              destructive: true,
               label: t("actions.delete"),
               onClick: onDelete,
             },

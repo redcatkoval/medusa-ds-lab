@@ -41,6 +41,7 @@ export const ProductTagGeneralSection = ({
             : []),
           {
             icon: <Trash />,
+            destructive: true,
             label: t("actions.delete"),
             onClick: handleDelete,
           },

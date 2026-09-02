@@ -60,6 +60,7 @@ export const ShippingProfileGeneralSection = ({
           actions={[
             {
               icon: <Trash />,
+              destructive: true,
               label: t("actions.delete"),
               onClick: handleDelete,
             },

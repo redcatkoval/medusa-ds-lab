@@ -57,6 +57,7 @@ export const ReturnReasonListTableActions = ({
         },
         {
           icon: <Trash />,
+          destructive: true,
           label: t("actions.delete"),
           onClick: handleDelete,
         },

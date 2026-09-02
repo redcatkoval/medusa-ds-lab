@@ -99,12 +99,14 @@ export const ApiKeyRowActions = ({
           : []),
         {
           icon: <XCircle />,
+          destructive: true,
           label: t("apiKeyManagement.actions.revoke"),
           onClick: handleRevoke,
           disabled: !!apiKey.revoked_at,
         },
         {
           icon: <Trash />,
+          destructive: true,
           label: t("actions.delete"),
           onClick: handleDelete,
           disabled: !apiKey.revoked_at,

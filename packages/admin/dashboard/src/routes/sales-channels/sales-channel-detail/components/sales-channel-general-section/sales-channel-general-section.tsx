@@ -71,6 +71,7 @@ export const SalesChannelGeneralSection = ({
               },
               {
                 icon: <Trash />,
+                destructive: true,
                 label: t("actions.delete"),
                 onClick: handleDelete,
               },

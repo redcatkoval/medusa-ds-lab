@@ -52,6 +52,7 @@ export const ProductOptionListTableActions = ({
         },
         {
           icon: <Trash />,
+          destructive: true,
           label: t("actions.delete"),
           onClick: handleDelete,
         },

@@ -190,6 +190,7 @@ const CountryActions = ({
           label: t("actions.remove"),
           onClick: handleRemove,
           icon: <Trash />,
+          destructive: true,
         },
       ]}
     />

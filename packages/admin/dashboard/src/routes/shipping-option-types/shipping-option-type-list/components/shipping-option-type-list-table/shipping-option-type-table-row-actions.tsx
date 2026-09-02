@@ -28,6 +28,7 @@ export const ShippingOptionTypeRowActions = ({
         {
           label: t("actions.delete"),
           icon: <Trash />,
+          destructive: true,
           onClick: handleDelete,
         },
       ]}

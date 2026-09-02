@@ -103,6 +103,7 @@ export const ApiKeyGeneralSection = ({ apiKey }: ApiKeyGeneralSectionProps) => {
   const dangerousActions: Action[] = [
     {
       icon: <Trash />,
+      destructive: true,
       label: t("actions.delete"),
       onClick: handleDelete,
       disabled: !apiKey.revoked_at,
@@ -112,6 +113,7 @@ export const ApiKeyGeneralSection = ({ apiKey }: ApiKeyGeneralSectionProps) => {
   if (!apiKey.revoked_at) {
     dangerousActions.unshift({
       icon: <XCircle />,
+      destructive: true,
       label: t("apiKeyManagement.actions.revoke"),
       onClick: handleRevoke,
       disabled: !!apiKey.revoked_at,
