@@ -20,24 +20,16 @@ export const ProductOptionGeneralSection = ({
         <Heading>{productOption.title}</Heading>
         <div className="flex items-center">
           <ActionMenu
-            groups={[
+            actions={[
               {
-                actions: [
-                  {
-                    label: t("actions.edit"),
-                    icon: <PencilSquare />,
-                    to: "edit",
-                  },
-                ],
+                label: t("actions.edit"),
+                icon: <PencilSquare />,
+                to: "edit",
               },
               {
-                actions: [
-                  {
-                    label: t("actions.delete"),
-                    icon: <Trash />,
-                    onClick: handleDelete,
-                  },
-                ],
+                label: t("actions.delete"),
+                icon: <Trash />,
+                onClick: handleDelete,
               },
             ]}
           />

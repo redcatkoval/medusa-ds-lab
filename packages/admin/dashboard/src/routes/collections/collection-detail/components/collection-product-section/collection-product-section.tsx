@@ -102,15 +102,11 @@ export const CollectionProductSection = ({
       <div className="flex items-center justify-between px-6 py-4">
         <Heading level="h2">{t("products.domain")}</Heading>
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  icon: <Plus />,
-                  label: t("actions.add"),
-                  to: "products",
-                },
-              ],
+              icon: <Plus />,
+              label: t("actions.add"),
+              to: "products",
             },
           ]}
         />

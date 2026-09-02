@@ -24,15 +24,11 @@ export const ProductOptionValueGeneralSection = ({
     <Container className="flex items-center justify-between">
       <Heading>{productOptionValue.value}</Heading>
       <ActionMenu
-        groups={[
+        actions={[
           {
-            actions: [
-              {
-                label: t("actions.delete"),
-                icon: <Trash />,
-                onClick: handleDelete,
-              },
-            ],
+            label: t("actions.delete"),
+            icon: <Trash />,
+            onClick: handleDelete,
           },
         ]}
       />

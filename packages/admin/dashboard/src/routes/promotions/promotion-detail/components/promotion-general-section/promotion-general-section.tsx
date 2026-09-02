@@ -88,24 +88,16 @@ export const PromotionGeneralSection = ({
         <div className="flex items-center gap-x-2">
           <StatusBadge color={color}>{text}</StatusBadge>
           <ActionMenu
-            groups={[
+            actions={[
               {
-                actions: [
-                  {
-                    icon: <PencilSquare />,
-                    label: t("actions.edit"),
-                    to: `/promotions/${promotion.id}/edit`,
-                  },
-                ],
+                icon: <PencilSquare />,
+                label: t("actions.edit"),
+                to: `/promotions/${promotion.id}/edit`,
               },
               {
-                actions: [
-                  {
-                    icon: <Trash />,
-                    label: t("actions.delete"),
-                    onClick: handleDelete,
-                  },
-                ],
+                icon: <Trash />,
+                label: t("actions.delete"),
+                onClick: handleDelete,
               },
             ]}
           />

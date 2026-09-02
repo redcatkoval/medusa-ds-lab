@@ -36,37 +36,25 @@ export const CategoryGeneralSection = ({
             </StatusBadge>
           </div>
           <ActionMenu
-            groups={[
+            actions={[
               {
-                actions: [
-                  {
-                    label: t("actions.edit"),
-                    icon: <PencilSquare />,
-                    to: "edit",
-                  },
-                ],
+                label: t("actions.edit"),
+                icon: <PencilSquare />,
+                to: "edit",
               },
               ...(isTranslationsEnabled
                 ? [
                     {
-                      actions: [
-                        {
-                          label: t("translations.actions.manage"),
-                          to: `/settings/translations/edit?reference=product_category&reference_id=${category.id}`,
-                          icon: <GlobeEurope />,
-                        },
-                      ],
+                      label: t("translations.actions.manage"),
+                      to: `/settings/translations/edit?reference=product_category&reference_id=${category.id}`,
+                      icon: <GlobeEurope />,
                     },
                   ]
                 : []),
               {
-                actions: [
-                  {
-                    label: t("actions.delete"),
-                    icon: <Trash />,
-                    onClick: handleDelete,
-                  },
-                ],
+                label: t("actions.delete"),
+                icon: <Trash />,
+                onClick: handleDelete,
               },
             ]}
           />

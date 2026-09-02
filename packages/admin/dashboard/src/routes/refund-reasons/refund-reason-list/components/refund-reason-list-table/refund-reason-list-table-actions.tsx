@@ -44,25 +44,17 @@ export const RefundReasonListTableActions = ({
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              icon: <PencilSquare />,
-              label: t("actions.edit"),
-              onClick: () =>
-                navigate(`/settings/refund-reasons/${refundReason.id}/edit`),
-            },
-          ],
+          icon: <PencilSquare />,
+          label: t("actions.edit"),
+          onClick: () =>
+            navigate(`/settings/refund-reasons/${refundReason.id}/edit`),
         },
         {
-          actions: [
-            {
-              icon: <Trash />,
-              label: t("actions.delete"),
-              onClick: handleDelete,
-            },
-          ],
+          icon: <Trash />,
+          label: t("actions.delete"),
+          onClick: handleDelete,
         },
       ]}
     />

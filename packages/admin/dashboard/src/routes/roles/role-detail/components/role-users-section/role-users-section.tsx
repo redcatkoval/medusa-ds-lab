@@ -201,15 +201,11 @@ const RoleUserActions = ({
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              icon: <Trash />,
-              label: t("actions.remove"),
-              onClick: handleRemove,
-            },
-          ],
+          icon: <Trash />,
+          label: t("actions.remove"),
+          onClick: handleRemove,
         },
       ]}
     />

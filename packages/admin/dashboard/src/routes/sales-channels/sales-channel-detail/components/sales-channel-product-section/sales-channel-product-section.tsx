@@ -230,24 +230,16 @@ const ProductListCellActions = ({
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              icon: <PencilSquare />,
-              label: t("actions.edit"),
-              to: `/products/${productId}`,
-            },
-          ],
+          icon: <PencilSquare />,
+          label: t("actions.edit"),
+          to: `/products/${productId}`,
         },
         {
-          actions: [
-            {
-              icon: <Trash />,
-              label: t("actions.remove"),
-              onClick: onRemove,
-            },
-          ],
+          icon: <Trash />,
+          label: t("actions.remove"),
+          onClick: onRemove,
         },
       ]}
     />

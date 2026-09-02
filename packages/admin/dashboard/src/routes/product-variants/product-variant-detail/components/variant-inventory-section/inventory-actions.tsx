@@ -10,15 +10,11 @@ export const InventoryActions = ({ item }: { item: AdminInventoryItem }) => {
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              icon: <Buildings />,
-              label: t("products.variant.inventory.navigateToItem"),
-              to: `/inventory/${item.id}`,
-            },
-          ],
+          icon: <Buildings />,
+          label: t("products.variant.inventory.navigateToItem"),
+          to: `/inventory/${item.id}`,
         },
       ]}
     />

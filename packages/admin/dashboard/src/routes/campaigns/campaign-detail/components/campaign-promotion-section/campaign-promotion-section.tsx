@@ -156,24 +156,16 @@ export const PromotionActions = ({
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              icon: <PencilSquare />,
-              label: t("actions.edit"),
-              to: `/promotions/${promotion.id}/edit`,
-            },
-          ],
+          icon: <PencilSquare />,
+          label: t("actions.edit"),
+          to: `/promotions/${promotion.id}/edit`,
         },
         {
-          actions: [
-            {
-              icon: <Trash />,
-              label: t("actions.remove"),
-              onClick: handleRemove,
-            },
-          ],
+          icon: <Trash />,
+          label: t("actions.remove"),
+          onClick: handleRemove,
         },
       ]}
     />

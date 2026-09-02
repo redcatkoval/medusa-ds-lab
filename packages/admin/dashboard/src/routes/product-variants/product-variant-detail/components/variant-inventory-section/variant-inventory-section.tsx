@@ -46,19 +46,15 @@ export function VariantInventorySection({
         </div>
         <div className="flex items-center gap-x-4">
           <ActionMenu
-            groups={[
+            actions={[
               {
-                actions: [
-                  {
-                    label: t(
-                      hasKit
-                        ? "products.variant.inventory.manageKit"
-                        : "products.variant.inventory.manageItems"
-                    ),
-                    to: "manage-items",
-                    icon: hasKit ? <Component /> : <Buildings />,
-                  },
-                ],
+                label: t(
+                  hasKit
+                    ? "products.variant.inventory.manageKit"
+                    : "products.variant.inventory.manageItems"
+                ),
+                to: "manage-items",
+                icon: hasKit ? <Component /> : <Buildings />,
               },
             ]}
           />

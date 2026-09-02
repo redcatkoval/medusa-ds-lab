@@ -24,37 +24,25 @@ export const ProductTagGeneralSection = ({
         <Heading>{productTag.value}</Heading>
       </div>
       <ActionMenu
-        groups={[
+        actions={[
           {
-            actions: [
-              {
-                icon: <PencilSquare />,
-                label: t("actions.edit"),
-                to: "edit",
-              },
-            ],
+            icon: <PencilSquare />,
+            label: t("actions.edit"),
+            to: "edit",
           },
           ...(isTranslationsEnabled
             ? [
                 {
-                  actions: [
-                    {
-                      label: t("translations.actions.manage"),
-                      to: `/settings/translations/edit?reference=product_tag&reference_id=${productTag.id}`,
-                      icon: <GlobeEurope />,
-                    },
-                  ],
+                  label: t("translations.actions.manage"),
+                  to: `/settings/translations/edit?reference=product_tag&reference_id=${productTag.id}`,
+                  icon: <GlobeEurope />,
                 },
               ]
             : []),
           {
-            actions: [
-              {
-                icon: <Trash />,
-                label: t("actions.delete"),
-                onClick: handleDelete,
-              },
-            ],
+            icon: <Trash />,
+            label: t("actions.delete"),
+            onClick: handleDelete,
           },
         ]}
       />

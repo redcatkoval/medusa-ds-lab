@@ -140,24 +140,16 @@ function LocationListItem(props: LocationProps) {
 
           <div className="flex grow-0 items-center gap-4">
             <ActionMenu
-              groups={[
+              actions={[
                 {
-                  actions: [
-                    {
-                      label: t("actions.edit"),
-                      icon: <PencilSquare />,
-                      to: `/settings/locations/${location.id}/edit`,
-                    },
-                  ],
+                  label: t("actions.edit"),
+                  icon: <PencilSquare />,
+                  to: `/settings/locations/${location.id}/edit`,
                 },
                 {
-                  actions: [
-                    {
-                      label: t("actions.delete"),
-                      icon: <Trash />,
-                      onClick: handleDelete,
-                    },
-                  ],
+                  label: t("actions.delete"),
+                  icon: <Trash />,
+                  onClick: handleDelete,
                 },
               ]}
             />

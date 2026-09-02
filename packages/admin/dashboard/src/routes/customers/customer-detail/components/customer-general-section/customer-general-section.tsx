@@ -97,7 +97,7 @@ export const CustomerGeneralSection = ({
         <Heading>{customer.email}</Heading>
         <div className="flex items-center gap-x-2">
           <StatusBadge color={statusColor}>{statusText}</StatusBadge>
-          {actions.length > 0 && <ActionMenu groups={[{ actions }]} />}
+          {actions.length > 0 && <ActionMenu actions={actions} />}
         </div>
       </div>
       <div className="text-ui-fg-subtle grid grid-cols-2 items-center px-6 py-4">

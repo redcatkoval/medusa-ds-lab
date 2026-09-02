@@ -15,15 +15,11 @@ export const UserListTableActions = ({
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              icon: <PencilSquare />,
-              label: t("actions.edit"),
-              onClick: () => navigate(`/settings/users/${user.id}/edit`),
-            },
-          ],
+          icon: <PencilSquare />,
+          label: t("actions.edit"),
+          onClick: () => navigate(`/settings/users/${user.id}/edit`),
         },
       ]}
     />

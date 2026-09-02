@@ -82,40 +82,32 @@ export const ApiKeyRowActions = ({
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              icon: <PencilSquare />,
-              label: t("actions.edit"),
-              to: `${apiKey.id}/edit`,
-            },
-            ...(apiKey.type !== "secret"
-              ? [
-                  {
-                    label: t("apiKeyManagement.actions.copy"),
-                    onClick: handleCopyToken,
-                    icon: <SquareTwoStack />,
-                  },
-                ]
-              : []),
-          ],
+          icon: <PencilSquare />,
+          label: t("actions.edit"),
+          to: `${apiKey.id}/edit`,
+        },
+        ...(apiKey.type !== "secret"
+          ? [
+              {
+                label: t("apiKeyManagement.actions.copy"),
+                onClick: handleCopyToken,
+                icon: <SquareTwoStack />,
+              },
+            ]
+          : []),
+        {
+          icon: <XCircle />,
+          label: t("apiKeyManagement.actions.revoke"),
+          onClick: handleRevoke,
+          disabled: !!apiKey.revoked_at,
         },
         {
-          actions: [
-            {
-              icon: <XCircle />,
-              label: t("apiKeyManagement.actions.revoke"),
-              onClick: handleRevoke,
-              disabled: !!apiKey.revoked_at,
-            },
-            {
-              icon: <Trash />,
-              label: t("actions.delete"),
-              onClick: handleDelete,
-              disabled: !apiKey.revoked_at,
-            },
-          ],
+          icon: <Trash />,
+          label: t("actions.delete"),
+          onClick: handleDelete,
+          disabled: !apiKey.revoked_at,
         },
       ]}
     />

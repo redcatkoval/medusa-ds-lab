@@ -233,19 +233,15 @@ const Payment = ({
           </Text>
         </div>
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  label: t("orders.payment.refund"),
-                  icon: <XCircle />,
-                  to: `/orders/${order.id}/refund?paymentId=${payment.id}`,
-                  disabled:
-                    !payment.captured_at ||
-                    !!payment.canceled_at ||
-                    totalRefunded >= payment.amount,
-                },
-              ],
+              label: t("orders.payment.refund"),
+              icon: <XCircle />,
+              to: `/orders/${order.id}/refund?paymentId=${payment.id}`,
+              disabled:
+                !payment.captured_at ||
+                !!payment.canceled_at ||
+                totalRefunded >= payment.amount,
             },
           ]}
         />

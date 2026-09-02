@@ -43,39 +43,27 @@ export const CollectionGeneralSection = ({
       <div className="flex items-center justify-between px-6 py-4">
         <Heading>{collection.title}</Heading>
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  icon: <PencilSquare />,
-                  label: t("actions.edit"),
-                  to: `/collections/${collection.id}/edit`,
-                  disabled: !collection.id,
-                },
-              ],
+              icon: <PencilSquare />,
+              label: t("actions.edit"),
+              to: `/collections/${collection.id}/edit`,
+              disabled: !collection.id,
             },
             ...(isTranslationsEnabled
               ? [
                   {
-                    actions: [
-                      {
-                        label: t("translations.actions.manage"),
-                        to: `/settings/translations/edit?reference=product_collection&reference_id=${collection.id}`,
-                        icon: <GlobeEurope />,
-                      },
-                    ],
+                    label: t("translations.actions.manage"),
+                    to: `/settings/translations/edit?reference=product_collection&reference_id=${collection.id}`,
+                    icon: <GlobeEurope />,
                   },
                 ]
               : []),
             {
-              actions: [
-                {
-                  icon: <Trash />,
-                  label: t("actions.delete"),
-                  onClick: handleDelete,
-                  disabled: !collection.id,
-                },
-              ],
+              icon: <Trash />,
+              label: t("actions.delete"),
+              onClick: handleDelete,
+              disabled: !collection.id,
             },
           ]}
         />

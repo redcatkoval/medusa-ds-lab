@@ -14,15 +14,11 @@ const OptionActions = ({
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              label: t("actions.goToProductOption"),
-              to: `/product-options/${option.id}`,
-              icon: <ArrowRight />,
-            },
-          ],
+          label: t("actions.goToProductOption"),
+          to: `/product-options/${option.id}`,
+          icon: <ArrowRight />,
         },
       ]}
     />
@@ -43,15 +39,11 @@ export const ProductOptionSection = ({
       <div className="flex items-center justify-between px-6 py-4">
         <Heading level="h2">{t("products.options.header")}</Heading>
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  label: t("actions.manage"),
-                  to: "options/manage",
-                  icon: <PencilSquare />,
-                },
-              ],
+              label: t("actions.manage"),
+              to: "options/manage",
+              icon: <PencilSquare />,
             },
           ]}
         />
@@ -81,9 +73,9 @@ export const ProductOptionSection = ({
                     key={val.value}
                     size="2xsmall"
                     title={val.value}
-                    className="flex min-w-[20px] items-center justify-center max-w-full min-w-0 overflow-hidden"
+                    className="flex min-w-0 min-w-[20px] max-w-full items-center justify-center overflow-hidden"
                   >
-                    <span className="truncate min-w-0">{val.value}</span>
+                    <span className="min-w-0 truncate">{val.value}</span>
                   </Badge>
                 )
               })}

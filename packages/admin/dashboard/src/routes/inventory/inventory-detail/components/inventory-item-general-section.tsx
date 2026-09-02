@@ -32,15 +32,11 @@ export const InventoryItemGeneralSection = ({
           {inventoryItem.title ?? inventoryItem.sku} {t("fields.details")}
         </Heading>
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  icon: <PencilSquare />,
-                  label: t("actions.edit"),
-                  to: "edit",
-                },
-              ],
+              icon: <PencilSquare />,
+              label: t("actions.edit"),
+              to: "edit",
             },
           ]}
         />

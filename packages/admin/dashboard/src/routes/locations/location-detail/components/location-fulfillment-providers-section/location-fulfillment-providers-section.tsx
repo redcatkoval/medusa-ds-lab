@@ -32,15 +32,11 @@ function LocationsFulfillmentProvidersSection({
         </Heading>
 
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  label: t("actions.edit"),
-                  to: "fulfillment-providers",
-                  icon: <PencilSquare />,
-                },
-              ],
+              label: t("actions.edit"),
+              to: "fulfillment-providers",
+              icon: <PencilSquare />,
             },
           ]}
         />

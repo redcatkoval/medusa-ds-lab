@@ -20,15 +20,11 @@ export const CampaignConfigurationSection = ({
       <div className="flex items-center justify-between">
         <Heading level="h2">{t("campaigns.configuration.header")}</Heading>
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  label: t("actions.edit"),
-                  icon: <PencilSquare />,
-                  to: "configuration",
-                },
-              ],
+              label: t("actions.edit"),
+              icon: <PencilSquare />,
+              to: "configuration",
             },
           ]}
         />

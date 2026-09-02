@@ -171,15 +171,11 @@ const UnfulfilledItemDisplay = ({
           </StatusBadge>
 
           <ActionMenu
-            groups={[
+            actions={[
               {
-                actions: [
-                  {
-                    label: t("orders.fulfillment.fulfillItems"),
-                    icon: <Buildings />,
-                    to: `/orders/${order.id}/fulfillment?requires_shipping=${requiresShipping}`,
-                  },
-                ],
+                label: t("orders.fulfillment.fulfillItems"),
+                icon: <Buildings />,
+                to: `/orders/${order.id}/fulfillment?requires_shipping=${requiresShipping}`,
               },
             ]}
           />
@@ -354,19 +350,15 @@ const Fulfillment = ({
             </StatusBadge>
           </Tooltip>
           <ActionMenu
-            groups={[
+            actions={[
               {
-                actions: [
-                  {
-                    label: t("actions.cancel"),
-                    icon: <XCircle />,
-                    onClick: handleCancel,
-                    disabled:
-                      !!fulfillment.canceled_at ||
-                      !!fulfillment.shipped_at ||
-                      !!fulfillment.delivered_at,
-                  },
-                ],
+                label: t("actions.cancel"),
+                icon: <XCircle />,
+                onClick: handleCancel,
+                disabled:
+                  !!fulfillment.canceled_at ||
+                  !!fulfillment.shipped_at ||
+                  !!fulfillment.delivered_at,
               },
             ]}
           />

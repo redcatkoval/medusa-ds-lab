@@ -100,17 +100,13 @@ function ClaimOutboundItem({
           </div>
 
           <ActionMenu
-            groups={[
+            actions={[
               {
-                actions: [
-                  {
-                    label: t("actions.remove"),
-                    onClick: onRemove,
-                    icon: <XCircle />,
-                  },
-                ].filter(Boolean),
+                label: t("actions.remove"),
+                onClick: onRemove,
+                icon: <XCircle />,
               },
-            ]}
+            ].filter(Boolean)}
           />
         </div>
       </div>

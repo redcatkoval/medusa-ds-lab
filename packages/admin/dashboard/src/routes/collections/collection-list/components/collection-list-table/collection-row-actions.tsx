@@ -39,38 +39,26 @@ export const CollectionRowActions = ({
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              label: t("actions.edit"),
-              to: `/collections/${collection.id}/edit`,
-              icon: <PencilSquare />,
-            },
-          ],
+          label: t("actions.edit"),
+          to: `/collections/${collection.id}/edit`,
+          icon: <PencilSquare />,
         },
         ...(isTranslationsEnabled
           ? [
               {
-                actions: [
-                  {
-                    icon: <GlobeEurope />,
-                    label: t("translations.actions.manage"),
-                    to: `/settings/translations/edit?reference=product_collection&reference_id=${collection.id}`,
-                  },
-                ],
+                icon: <GlobeEurope />,
+                label: t("translations.actions.manage"),
+                to: `/settings/translations/edit?reference=product_collection&reference_id=${collection.id}`,
               },
             ]
           : []),
         {
-          actions: [
-            {
-              label: t("actions.delete"),
-              onClick: handleDeleteCollection,
-              icon: <Trash />,
-              disabled: !collection.id,
-            },
-          ],
+          label: t("actions.delete"),
+          onClick: handleDeleteCollection,
+          icon: <Trash />,
+          disabled: !collection.id,
         },
       ]}
     />

@@ -22,15 +22,11 @@ export const ProductOrganizationSection = ({
       <div className="flex items-center justify-between px-6 py-4">
         <Heading level="h2">{t("products.organization.header")}</Heading>
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  label: t("actions.edit"),
-                  to: "organization",
-                  icon: <PencilSquare />,
-                },
-              ],
+              label: t("actions.edit"),
+              to: "organization",
+              icon: <PencilSquare />,
             },
           ]}
         />

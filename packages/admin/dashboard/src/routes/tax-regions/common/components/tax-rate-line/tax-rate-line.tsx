@@ -57,24 +57,16 @@ const TaxRateActions = ({ taxRate }: { taxRate: HttpTypes.AdminTaxRate }) => {
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              label: t("actions.edit"),
-              icon: <PencilSquare />,
-              to: `tax-rates/${taxRate.id}/edit`,
-            },
-          ],
+          label: t("actions.edit"),
+          icon: <PencilSquare />,
+          to: `tax-rates/${taxRate.id}/edit`,
         },
         {
-          actions: [
-            {
-              label: t("actions.delete"),
-              icon: <Trash />,
-              onClick: handleDelete,
-            },
-          ],
+          label: t("actions.delete"),
+          icon: <Trash />,
+          onClick: handleDelete,
         },
       ]}
     />

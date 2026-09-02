@@ -98,15 +98,11 @@ const CustomerOrderActions = ({ order }: { order: HttpTypes.AdminOrder }) => {
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              label: t("transferOwnership.label"),
-              to: `${order.id}/transfer`,
-              icon: <ArrowPath />,
-            },
-          ],
+          label: t("transferOwnership.label"),
+          to: `${order.id}/transfer`,
+          icon: <ArrowPath />,
         },
       ]}
     />

@@ -17,24 +17,16 @@ export const PriceListListTableActions = ({
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              label: t("actions.edit"),
-              to: `${priceList.id}/edit`,
-              icon: <PencilSquare />,
-            },
-          ],
+          label: t("actions.edit"),
+          to: `${priceList.id}/edit`,
+          icon: <PencilSquare />,
         },
         {
-          actions: [
-            {
-              label: t("actions.delete"),
-              onClick: handleDelete,
-              icon: <Trash />,
-            },
-          ],
+          label: t("actions.delete"),
+          onClick: handleDelete,
+          icon: <Trash />,
         },
       ]}
     />

@@ -90,17 +90,13 @@ export const CustomerAddressSection = ({
             {/* Only show delete action if user has delete permission */}
             {canDelete && (
               <ActionMenu
-                groups={[
+                actions={[
                   {
-                    actions: [
-                      {
-                        icon: <Trash />,
-                        label: t("actions.delete"),
-                        onClick: async () => {
-                          await handleDelete(address)
-                        },
-                      },
-                    ],
+                    icon: <Trash />,
+                    label: t("actions.delete"),
+                    onClick: async () => {
+                      await handleDelete(address)
+                    },
                   },
                 ]}
               />

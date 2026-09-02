@@ -162,24 +162,16 @@ export const CustomerActions = ({
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              icon: <PencilSquare />,
-              label: t("actions.edit"),
-              to: `/customers/${customer.id}/edit`,
-            },
-          ],
+          icon: <PencilSquare />,
+          label: t("actions.edit"),
+          to: `/customers/${customer.id}/edit`,
         },
         {
-          actions: [
-            {
-              icon: <Trash />,
-              label: t("actions.remove"),
-              onClick: handleRemove,
-            },
-          ],
+          icon: <Trash />,
+          label: t("actions.remove"),
+          onClick: handleRemove,
         },
       ]}
     />

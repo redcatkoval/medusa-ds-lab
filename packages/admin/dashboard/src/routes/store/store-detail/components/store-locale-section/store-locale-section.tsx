@@ -113,15 +113,11 @@ export const StoreLocaleSection = ({ store }: StoreLocaleSectionProps) => {
       <div className="flex items-center justify-between px-6 py-4">
         <Heading level="h2">{t("store.locales")}</Heading>
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  icon: <Plus />,
-                  label: t("actions.add"),
-                  to: "locales",
-                },
-              ],
+              icon: <Plus />,
+              label: t("actions.add"),
+              to: "locales",
             },
           ]}
         />
@@ -207,15 +203,11 @@ const LocaleActions = ({
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              icon: <Trash />,
-              label: t("actions.remove"),
-              onClick: handleRemove,
-            },
-          ],
+          icon: <Trash />,
+          label: t("actions.remove"),
+          onClick: handleRemove,
         },
       ]}
     />

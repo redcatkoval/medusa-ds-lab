@@ -426,12 +426,7 @@ export const DataTable = <TData,>({
                 />
               </div>
             )}
-            {actionMenu && (
-              <ActionMenu
-                variant="primary"
-                groups={[{ actions: actionMenu.actions }]}
-              />
-            )}
+            {actionMenu && <ActionMenu actions={actionMenu.actions} />}
             {actions && actions.length > 0 && (
               <DataTableActions actions={actions} />
             )}

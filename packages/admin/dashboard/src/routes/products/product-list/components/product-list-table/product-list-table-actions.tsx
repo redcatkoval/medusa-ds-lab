@@ -49,37 +49,25 @@ export const ProductActions = ({
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              icon: <PencilSquare />,
-              label: t("actions.edit"),
-              to: `/products/${product.id}/edit`,
-            },
-          ],
+          icon: <PencilSquare />,
+          label: t("actions.edit"),
+          to: `/products/${product.id}/edit`,
         },
         ...(isTranslationsEnabled
           ? [
               {
-                actions: [
-                  {
-                    icon: <GlobeEurope />,
-                    label: t("translations.actions.manage"),
-                    to: `/settings/translations/edit?reference=product&reference_id=${product.id}`,
-                  },
-                ],
+                icon: <GlobeEurope />,
+                label: t("translations.actions.manage"),
+                to: `/settings/translations/edit?reference=product&reference_id=${product.id}`,
               },
             ]
           : []),
         {
-          actions: [
-            {
-              icon: <Trash />,
-              label: t("actions.delete"),
-              onClick: handleDelete,
-            },
-          ],
+          icon: <Trash />,
+          label: t("actions.delete"),
+          onClick: handleDelete,
         },
       ]}
     />

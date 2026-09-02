@@ -70,15 +70,11 @@ export const PromotionConditionsSection = ({
         </div>
 
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  icon: <PencilSquare />,
-                  label: t("actions.edit"),
-                  to: `${ruleType}/edit`,
-                },
-              ],
+              icon: <PencilSquare />,
+              label: t("actions.edit"),
+              to: `${ruleType}/edit`,
             },
           ]}
         />

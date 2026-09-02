@@ -109,29 +109,27 @@ function ClaimInboundItem({
           </div>
 
           <ActionMenu
-            groups={[
-              {
-                actions: [
-                  !showReturnReason && {
-                    label: t("actions.addReason"),
-                    onClick: () =>
-                      form.setValue(`inbound_items.${index}.reason_id`, ""),
-                    icon: <ChatBubble />,
-                  },
-                  !showNote && {
-                    label: t("actions.addNote"),
-                    onClick: () =>
-                      form.setValue(`inbound_items.${index}.note`, ""),
-                    icon: <DocumentText />,
-                  },
-                  {
-                    label: t("actions.remove"),
-                    onClick: onRemove,
-                    icon: <XCircle />,
-                  },
-                ].filter(Boolean) as Action[],
-              },
-            ]}
+            actions={
+              [
+                !showReturnReason && {
+                  label: t("actions.addReason"),
+                  onClick: () =>
+                    form.setValue(`inbound_items.${index}.reason_id`, ""),
+                  icon: <ChatBubble />,
+                },
+                !showNote && {
+                  label: t("actions.addNote"),
+                  onClick: () =>
+                    form.setValue(`inbound_items.${index}.note`, ""),
+                  icon: <DocumentText />,
+                },
+                {
+                  label: t("actions.remove"),
+                  onClick: onRemove,
+                  icon: <XCircle />,
+                },
+              ].filter(Boolean) as Action[]
+            }
           />
         </div>
       </div>

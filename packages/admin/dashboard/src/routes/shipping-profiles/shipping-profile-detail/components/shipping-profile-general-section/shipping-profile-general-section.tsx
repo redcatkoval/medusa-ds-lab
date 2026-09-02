@@ -57,15 +57,11 @@ export const ShippingProfileGeneralSection = ({
       <div className="flex items-center justify-between px-6 py-4">
         <Heading>{profile.name}</Heading>
         <ActionMenu
-          groups={[
+          actions={[
             {
-              actions: [
-                {
-                  icon: <Trash />,
-                  label: t("actions.delete"),
-                  onClick: handleDelete,
-                },
-              ],
+              icon: <Trash />,
+              label: t("actions.delete"),
+              onClick: handleDelete,
             },
           ]}
         />

@@ -77,38 +77,26 @@ export const ProductGeneralSection = ({
             {t(`products.productStatus.${product.status}`)}
           </StatusBadge>
           <ActionMenu
-            groups={[
+            actions={[
               {
-                actions: [
-                  {
-                    label: t("actions.edit"),
-                    to: "edit",
-                    icon: <PencilSquare />,
-                  },
-                ],
+                label: t("actions.edit"),
+                to: "edit",
+                icon: <PencilSquare />,
               },
               ...(isTranslationsEnabled
                 ? [
                     {
-                      actions: [
-                        {
-                          label: t("translations.actions.manage"),
-                          to: `/settings/translations/edit?reference=product&reference_id=${product.id}`,
-                          icon: <GlobeEurope />,
-                        },
-                      ],
+                      label: t("translations.actions.manage"),
+                      to: `/settings/translations/edit?reference=product&reference_id=${product.id}`,
+                      icon: <GlobeEurope />,
                     },
                   ]
                 : []),
               {
-                actions: [
-                  {
-                    label: t("actions.delete"),
-                    onClick: handleDelete,
-                    icon: <Trash />,
-                    destructive: true,
-                  },
-                ],
+                label: t("actions.delete"),
+                onClick: handleDelete,
+                icon: <Trash />,
+                destructive: true,
               },
             ]}
           />

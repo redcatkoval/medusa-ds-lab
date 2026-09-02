@@ -26,15 +26,11 @@ const CustomerOrderRowActions = ({
   const { t } = useTranslation()
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              label: t("transferOwnership.label"),
-              to: `${order.id}/transfer`,
-              icon: <ArrowPath />,
-            },
-          ],
+          label: t("transferOwnership.label"),
+          to: `${order.id}/transfer`,
+          icon: <ArrowPath />,
         },
       ]}
     />

@@ -17,37 +17,25 @@ export const ProductTagListTableActions = ({
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              icon: <PencilSquare />,
-              label: t("actions.edit"),
-              to: `${productTag.id}/edit`,
-            },
-          ],
+          icon: <PencilSquare />,
+          label: t("actions.edit"),
+          to: `${productTag.id}/edit`,
         },
         ...(isTranslationsEnabled
           ? [
               {
-                actions: [
-                  {
-                    icon: <GlobeEurope />,
-                    label: t("translations.actions.manage"),
-                    to: `/settings/translations/edit?reference=product_tag&reference_id=${productTag.id}`,
-                  },
-                ],
+                icon: <GlobeEurope />,
+                label: t("translations.actions.manage"),
+                to: `/settings/translations/edit?reference=product_tag&reference_id=${productTag.id}`,
               },
             ]
           : []),
         {
-          actions: [
-            {
-              icon: <Trash />,
-              label: t("actions.delete"),
-              onClick: handleDelete,
-            },
-          ],
+          icon: <Trash />,
+          label: t("actions.delete"),
+          onClick: handleDelete,
         },
       ]}
     />

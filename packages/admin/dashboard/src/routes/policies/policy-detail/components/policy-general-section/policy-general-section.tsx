@@ -62,10 +62,7 @@ export const PolicyGeneralSection = ({ policy }: PolicyGeneralSectionProps) => {
         <Heading>{policy.name ?? policy.key}</Heading>
         {/*
         <ActionMenu
-          groups={[
-            {
-              actions: [
-                {
+          actions={[{
                   icon: <PencilSquare />,
                   label: t("actions.edit"),
                   to: `edit`,
@@ -75,12 +72,7 @@ export const PolicyGeneralSection = ({ policy }: PolicyGeneralSectionProps) => {
                       {t("permissions.accessDenied.action")}
                     </Hint>
                   ),
-                },
-              ],
-            },
-            {
-              actions: [
-                {
+                }, {
                   icon: <Trash />,
                   label: t("actions.delete"),
                   onClick: handleDelete,
@@ -90,10 +82,7 @@ export const PolicyGeneralSection = ({ policy }: PolicyGeneralSectionProps) => {
                       {t("permissions.accessDenied.action")}
                     </Hint>
                   ),
-                },
-              ],
-            },
-          ]}
+                }]}
         />
         */}
       </div>

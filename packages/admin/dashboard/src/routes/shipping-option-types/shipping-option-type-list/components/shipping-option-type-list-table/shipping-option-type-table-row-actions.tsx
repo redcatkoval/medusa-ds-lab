@@ -19,24 +19,16 @@ export const ShippingOptionTypeRowActions = ({
 
   return (
     <ActionMenu
-      groups={[
+      actions={[
         {
-          actions: [
-            {
-              label: t("actions.edit"),
-              icon: <PencilSquare />,
-              to: `/settings/locations/shipping-option-types/${shippingOptionType.id}/edit`,
-            },
-          ],
+          label: t("actions.edit"),
+          icon: <PencilSquare />,
+          to: `/settings/locations/shipping-option-types/${shippingOptionType.id}/edit`,
         },
         {
-          actions: [
-            {
-              label: t("actions.delete"),
-              icon: <Trash />,
-              onClick: handleDelete,
-            },
-          ],
+          label: t("actions.delete"),
+          icon: <Trash />,
+          onClick: handleDelete,
         },
       ]}
     />
