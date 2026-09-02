@@ -1,10 +1,8 @@
-import { PencilSquare } from "@medusajs/icons"
 import { AdminStore } from "@medusajs/types"
-import { Badge, Container, Heading, Text } from "@medusajs/ui"
+import { Badge, Button, Container, Heading, Text } from "@medusajs/ui"
 import { useTranslation } from "react-i18next"
 
 import { Link } from "react-router-dom"
-import { ActionMenu } from "../../../../../components/common/action-menu"
 import { useSalesChannel, useStockLocation } from "../../../../../hooks/api"
 import { useRegion } from "../../../../../hooks/api/regions"
 
@@ -44,15 +42,9 @@ export const StoreGeneralSection = ({ store }: StoreGeneralSectionProps) => {
             {t("store.manageYourStoresDetails")}
           </Text>
         </div>
-        <ActionMenu
-          actions={[
-            {
-              icon: <PencilSquare />,
-              label: t("actions.edit"),
-              to: "edit",
-            },
-          ]}
-        />
+        <Button size="small" variant="secondary" asChild>
+          <Link to="edit">{t("actions.edit")}</Link>
+        </Button>
       </div>
       <div className="text-ui-fg-subtle grid grid-cols-2 px-6 py-4">
         <Text size="small" leading="compact" weight="plus">

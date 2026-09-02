@@ -1,6 +1,7 @@
-import { ArrowRight, PencilSquare } from "@medusajs/icons"
-import { Badge, Container, Heading } from "@medusajs/ui"
+import { ArrowRight } from "@medusajs/icons"
+import { Badge, Button, Container, Heading } from "@medusajs/ui"
 import { useTranslation } from "react-i18next"
+import { Link } from "react-router-dom"
 import { ActionMenu } from "../../../../../components/common/action-menu"
 import { SectionRow } from "../../../../../components/common/section"
 import { HttpTypes } from "@medusajs/types"
@@ -38,15 +39,9 @@ export const ProductOptionSection = ({
     <Container className="divide-y p-0">
       <div className="flex items-center justify-between px-6 py-4">
         <Heading level="h2">{t("products.options.header")}</Heading>
-        <ActionMenu
-          actions={[
-            {
-              label: t("actions.manage"),
-              to: "options/manage",
-              icon: <PencilSquare />,
-            },
-          ]}
-        />
+        <Button size="small" variant="secondary" asChild>
+          <Link to="options/manage">{t("actions.manage")}</Link>
+        </Button>
       </div>
 
       {product.options?.map((option) => {

@@ -1,10 +1,10 @@
-import { HandTruck, PencilSquare } from "@medusajs/icons"
+import { HandTruck } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
-import { Container, Heading } from "@medusajs/ui"
+import { Button, Container, Heading } from "@medusajs/ui"
 import { Fragment } from "react"
 import { useTranslation } from "react-i18next"
+import { Link } from "react-router-dom"
 
-import { ActionMenu } from "../../../../../components/common/action-menu"
 import { NoRecords } from "../../../../../components/common/empty-table-content"
 import { IconAvatar } from "../../../../../components/common/icon-avatar"
 import { useFulfillmentProviders } from "../../../../../hooks/api"
@@ -31,15 +31,9 @@ function LocationsFulfillmentProvidersSection({
           {t("stockLocations.fulfillmentProviders.header")}
         </Heading>
 
-        <ActionMenu
-          actions={[
-            {
-              label: t("actions.edit"),
-              to: "fulfillment-providers",
-              icon: <PencilSquare />,
-            },
-          ]}
-        />
+        <Button size="small" variant="secondary" asChild>
+          <Link to="fulfillment-providers">{t("actions.edit")}</Link>
+        </Button>
       </div>
 
       {fulfillment_providers?.length ? (

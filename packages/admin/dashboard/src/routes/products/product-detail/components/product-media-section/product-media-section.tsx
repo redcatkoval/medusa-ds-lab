@@ -1,4 +1,4 @@
-import { PencilSquare, ThumbnailBadge } from "@medusajs/icons"
+import { ThumbnailBadge } from "@medusajs/icons"
 import {
   Button,
   Checkbox,
@@ -13,7 +13,6 @@ import {
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import { Link, useNavigate } from "react-router-dom"
-import { ActionMenu } from "../../../../../components/common/action-menu"
 import { useUpdateProduct } from "../../../../../hooks/api/products"
 import { HttpTypes } from "@medusajs/types"
 
@@ -87,15 +86,9 @@ export const ProductMediaSection = ({ product }: ProductMedisaSectionProps) => {
     <Container className="divide-y p-0">
       <div className="flex items-center justify-between px-6 py-4">
         <Heading level="h2">{t("products.media.label")}</Heading>
-        <ActionMenu
-          actions={[
-            {
-              label: t("actions.editImages"),
-              to: "media?view=edit",
-              icon: <PencilSquare />,
-            },
-          ]}
-        />
+        <Button size="small" variant="secondary" asChild>
+          <Link to="media?view=edit">{t("actions.editImages")}</Link>
+        </Button>
       </div>
       {media.length > 0 ? (
         <div className="grid grid-cols-[repeat(auto-fill,minmax(96px,1fr))] gap-4 px-6 py-4">

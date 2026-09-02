@@ -1,6 +1,7 @@
-import { CheckCircle, Plus, Trash, XCircle } from "@medusajs/icons"
+import { CheckCircle, Trash, XCircle } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
 import {
+  Button,
   Checkbox,
   CommandBar,
   Container,
@@ -12,6 +13,7 @@ import { keepPreviousData } from "@tanstack/react-query"
 import { RowSelectionState, createColumnHelper } from "@tanstack/react-table"
 import { useMemo, useState } from "react"
 import { useTranslation } from "react-i18next"
+import { Link } from "react-router-dom"
 
 import { ActionMenu } from "../../../../../components/common/action-menu"
 import { _DataTable } from "../../../../../components/table/data-table"
@@ -150,15 +152,9 @@ export const StoreCurrencySection = ({ store }: StoreCurrencySectionProps) => {
     <Container className="divide-y p-0">
       <div className="flex items-center justify-between px-6 py-4">
         <Heading level="h2">{t("store.currencies")}</Heading>
-        <ActionMenu
-          actions={[
-            {
-              icon: <Plus />,
-              label: t("actions.add"),
-              to: "currencies",
-            },
-          ]}
-        />
+        <Button size="small" variant="secondary" asChild>
+          <Link to="currencies">{t("actions.add")}</Link>
+        </Button>
       </div>
       <_DataTable
         orderBy={[

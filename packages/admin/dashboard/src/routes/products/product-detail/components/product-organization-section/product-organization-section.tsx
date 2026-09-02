@@ -1,9 +1,7 @@
-import { PencilSquare } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
-import { Badge, Container, Heading, Tooltip } from "@medusajs/ui"
+import { Badge, Button, Container, Heading, Tooltip } from "@medusajs/ui"
 import { useTranslation } from "react-i18next"
 import { Link } from "react-router-dom"
-import { ActionMenu } from "../../../../../components/common/action-menu"
 import { SectionRow } from "../../../../../components/common/section"
 import { useExtension } from "../../../../../providers/extension-provider"
 
@@ -21,15 +19,9 @@ export const ProductOrganizationSection = ({
     <Container className="divide-y p-0">
       <div className="flex items-center justify-between px-6 py-4">
         <Heading level="h2">{t("products.organization.header")}</Heading>
-        <ActionMenu
-          actions={[
-            {
-              label: t("actions.edit"),
-              to: "organization",
-              icon: <PencilSquare />,
-            },
-          ]}
-        />
+        <Button size="small" variant="secondary" asChild>
+          <Link to="organization">{t("actions.edit")}</Link>
+        </Button>
       </div>
 
       <SectionRow

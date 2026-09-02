@@ -1,9 +1,8 @@
-import { Container, Heading, Text, Tooltip } from "@medusajs/ui"
+import { Button, Container, Heading, Text, Tooltip } from "@medusajs/ui"
 import { useTranslation } from "react-i18next"
+import { Link } from "react-router-dom"
 import { HttpTypes } from "@medusajs/types"
-import { PencilSquare, ThumbnailBadge } from "@medusajs/icons"
-
-import { ActionMenu } from "../../../../../components/common/action-menu"
+import { ThumbnailBadge } from "@medusajs/icons"
 
 type VariantMediaSectionProps = {
   variant: Omit<HttpTypes.AdminProductVariant, "images"> & {
@@ -25,15 +24,9 @@ export const VariantMediaSection = ({ variant }: VariantMediaSectionProps) => {
     <Container className="divide-y p-0">
       <div className="flex items-center justify-between px-6 py-4">
         <Heading level="h2">{t("products.media.label")}</Heading>
-        <ActionMenu
-          actions={[
-            {
-              label: t("actions.editImages"),
-              to: "media",
-              icon: <PencilSquare />,
-            },
-          ]}
-        />
+        <Button size="small" variant="secondary" asChild>
+          <Link to="media">{t("actions.editImages")}</Link>
+        </Button>
       </div>
       {media.length > 0 ? (
         <div className="grid grid-cols-[repeat(auto-fill,minmax(96px,1fr))] gap-4 px-6 py-4">

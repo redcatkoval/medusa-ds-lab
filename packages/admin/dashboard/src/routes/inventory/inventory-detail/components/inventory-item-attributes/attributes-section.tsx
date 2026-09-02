@@ -1,11 +1,10 @@
-import { Container, Heading } from "@medusajs/ui"
+import { Button, Container, Heading } from "@medusajs/ui"
 
-import { ActionMenu } from "../../../../../components/common/action-menu"
 import { InventoryTypes } from "@medusajs/types"
-import { PencilSquare } from "@medusajs/icons"
 import { SectionRow } from "../../../../../components/common/section"
 import { getFormattedCountry } from "../../../../../lib/addresses"
 import { useTranslation } from "react-i18next"
+import { Link } from "react-router-dom"
 
 type InventoryItemAttributeSectionProps = {
   inventoryItem: InventoryTypes.InventoryItemDTO
@@ -20,15 +19,9 @@ export const InventoryItemAttributeSection = ({
     <Container className="divide-y p-0">
       <div className="flex items-center justify-between px-6 py-4">
         <Heading level="h2">{t("products.attributes")}</Heading>
-        <ActionMenu
-          actions={[
-            {
-              label: t("actions.edit"),
-              to: "attributes",
-              icon: <PencilSquare />,
-            },
-          ]}
-        />
+        <Button size="small" variant="secondary" asChild>
+          <Link to="attributes">{t("actions.edit")}</Link>
+        </Button>
       </div>
       <SectionRow title={t("fields.height")} value={inventoryItem.height} />
       <SectionRow title={t("fields.width")} value={inventoryItem.width} />

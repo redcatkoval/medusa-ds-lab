@@ -1,8 +1,7 @@
-import { PencilSquare } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
-import { Container, Heading } from "@medusajs/ui"
+import { Button, Container, Heading } from "@medusajs/ui"
 import { useTranslation } from "react-i18next"
-import { ActionMenu } from "../../../../../components/common/action-menu"
+import { Link } from "react-router-dom"
 import { DateRangeDisplay } from "../../../../../components/common/date-range-display"
 import { ListSummary } from "../../../../../components/common/list-summary"
 import { Skeleton } from "../../../../../components/common/skeleton"
@@ -24,15 +23,9 @@ export const PriceListConfigurationSection = ({
           <Heading level="h2">{t("priceLists.configuration.header")}</Heading>
           <CustomerGroupDisplay priceList={priceList} />
         </div>
-        <ActionMenu
-          actions={[
-            {
-              label: t("actions.edit"),
-              to: "configuration",
-              icon: <PencilSquare />,
-            },
-          ]}
-        />
+        <Button size="small" variant="secondary" asChild>
+          <Link to="configuration">{t("actions.edit")}</Link>
+        </Button>
       </div>
 
       <DateRangeDisplay

@@ -1,8 +1,7 @@
-import { PencilSquare } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
-import { Container, Heading, Text } from "@medusajs/ui"
+import { Button, Container, Heading, Text } from "@medusajs/ui"
 import { useTranslation } from "react-i18next"
-import { ActionMenu } from "../../../../../components/common/action-menu"
+import { Link } from "react-router-dom"
 import { languages } from "../../../../../i18n/languages"
 
 type ProfileGeneralSectionProps = {
@@ -23,15 +22,9 @@ export const ProfileGeneralSection = ({ user }: ProfileGeneralSectionProps) => {
             {t("profile.manageYourProfileDetails")}
           </Text>
         </div>
-        <ActionMenu
-          actions={[
-            {
-              label: t("actions.edit"),
-              to: "edit",
-              icon: <PencilSquare />,
-            },
-          ]}
-        />
+        <Button size="small" variant="secondary" asChild>
+          <Link to="edit">{t("actions.edit")}</Link>
+        </Button>
       </div>
       <div className="text-ui-fg-subtle grid grid-cols-2 items-center px-6 py-4">
         <Text size="small" leading="compact" weight="plus">
