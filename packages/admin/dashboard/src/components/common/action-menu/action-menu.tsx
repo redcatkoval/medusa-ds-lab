@@ -88,6 +88,8 @@ export const ActionMenu = ({
                         className={clx(
                           "[&_svg]:text-ui-fg-subtle flex items-center gap-x-2",
                           {
+                            "text-ui-fg-error [&_svg]:text-ui-fg-error":
+                              action.destructive,
                             "[&_svg]:text-ui-fg-disabled": action.disabled,
                           }
                         )}
@@ -105,6 +107,8 @@ export const ActionMenu = ({
                       className={clx(
                         "[&_svg]:text-ui-fg-subtle flex items-center gap-x-2",
                         {
+                          "text-ui-fg-error [&_svg]:text-ui-fg-error":
+                            action.destructive,
                           "[&_svg]:text-ui-fg-disabled": action.disabled,
                         }
                       )}
