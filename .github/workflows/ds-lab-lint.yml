@@ -1,0 +1,107 @@
+# Линтер контрактов дизайн-системы DS-LAB.
+#
+# Наш файл, не upstream: префикс ds-lab- и отсутствие в апстриме —
+# признак из DEC-010 (ds-lab-ops/decisions/DEC-010-nasha-osnastka-v-forke.md).
+# Остальное в .github/ не трогаем.
+#
+# Правила, контракт и baseline живут в другом репозитории —
+# redcatkoval/ds-lab-ops. Он публичный, поэтому токен не нужен.
+
+name: ds-lab lint
+
+on:
+  push:
+    branches:
+      - "ds-lab/**"
+  pull_request:
+    branches:
+      - develop
+
+# Новый пуш в ту же ветку отменяет предыдущий прогон.
+concurrency:
+  group: ds-lab-lint-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Контракт ActionMenu
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      # Монорепо большое: pack ~840 МБ, 783 тыс. объектов.
+      # Линтеру нужно только рабочее дерево, история не нужна.
+      - name: Забрать форк
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      # Из ds-lab-ops берём только то, что нужно линтеру: ~68 КБ.
+      # Ссылаемся на main без пиннинга — правило начинает действовать
+      # сразу после коммита в ds-lab-ops, копий правил здесь не заводим.
+      # Цена такая: коммит в ds-lab-ops может покрасить эту сборку без
+      # единого коммита в форке. Поэтому ниже печатается его SHA.
+      - name: Забрать линтер и контракт
+        uses: actions/checkout@v4
+        with:
+          repository: redcatkoval/ds-lab-ops
+          ref: main
+          path: .ds-lab-ops
+          fetch-depth: 1
+          sparse-checkout: |
+            tools/lint
+            contracts
+
+      - name: Назвать версию правил
+        run: |
+          SHA=$(git -C .ds-lab-ops rev-parse HEAD)
+          echo "Правила и контракт: redcatkoval/ds-lab-ops@${SHA}" | tee -a "$GITHUB_STEP_SUMMARY"
+          echo "DS_OPS_SHA=$SHA" >> "$GITHUB_ENV"
+
+      # Зависимостей у линтера нет, python3 на ubuntu-latest предустановлен,
+      # синтаксиса новее 3.9 в нём нет. setup-python не нужен.
+      #
+      # scan.root в rules/action-menu.json записан для раскладки на диске
+      # разработчика (../medusa-src/...). Здесь раскладка другая, поэтому
+      # область задаётся флагом --root.
+      - name: Прогнать линтер
+        id: lint
+        run: |
+          set +e
+          python3 .ds-lab-ops/tools/lint/lint.py \
+            --root packages/admin/dashboard/src \
+            | tee lint-output.txt
+          echo "code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+          set -e
+
+      - name: Разобрать результат
+        run: |
+          CODE="${{ steps.lint.outputs.code }}"
+          {
+            echo ""
+            echo '```'
+            cat lint-output.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          case "$CODE" in
+            0)
+              echo "Новых нарушений нет. Замороженные в baseline ошибкой не считаются."
+              exit 0
+              ;;
+            1)
+              echo "::error title=Новое нарушение контракта::Смотрите блок «НОВЫЕ НАРУШЕНИЯ» в логе. Правило и его номер раздела указаны у каждого нарушения; текст правила — в ds-lab-ops/contracts/action-menu.md. Замороженные в baseline нарушения на этот результат не влияют."
+              exit 1
+              ;;
+            2)
+              echo "::error title=Правило разошлось с контрактом::Линтер остановился и НИЧЕГО не проверил. Причина не в этом репозитории: правило в ds-lab-ops/tools/lint/rules/ ссылается на цитату из ds-lab-ops/contracts/action-menu.md, которой там больше нет. Чинить в redcatkoval/ds-lab-ops@${DS_OPS_SHA}: либо вернуть формулировку в контракт, либо поправить поле anchor в правиле. До этого проверка не работает — зелёный результат здесь ничего не означал бы."
+              exit 1
+              ;;
+            *)
+              echo "::error title=Линтер упал::Неожиданный код возврата ${CODE}. Смотрите лог шага «Прогнать линтер»."
+              exit 1
+              ;;
+          esac
