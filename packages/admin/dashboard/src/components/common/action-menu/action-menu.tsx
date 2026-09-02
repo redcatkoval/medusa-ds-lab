@@ -14,6 +14,10 @@ export type Action = {
    * Optional tooltip to display when a disabled action is hovered.
    */
   disabledTooltip?: string | ReactNode
+  /**
+   * Marks the action as destructive, e.g. delete.
+   */
+  destructive?: boolean
 } & (
   | {
       to: string
