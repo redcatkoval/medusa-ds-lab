@@ -1,7 +1,7 @@
 import { DropdownMenu, IconButton, clx } from "@medusajs/ui"
 
 import { EllipsisHorizontal } from "@medusajs/icons"
-import { PropsWithChildren, ReactNode } from "react"
+import { Fragment, PropsWithChildren, ReactNode } from "react"
 import { Link } from "react-router-dom"
 import { ConditionalTooltip } from "../conditional-tooltip"
 import { useDocumentDirection } from "../../../hooks/use-document-direction"
@@ -63,7 +63,9 @@ export const ActionMenu = ({
 
           return (
             <DropdownMenu.Group key={index}>
-              {group.actions.map((action, index) => {
+              {group.actions.map((action, actionIndex) => {
+                const isLastAction = actionIndex === group.actions.length - 1
+
                 const Wrapper = action.disabledTooltip
                   ? ({ children }: { children: ReactNode }) => (
                       <ConditionalTooltip
@@ -78,13 +80,36 @@ export const ActionMenu = ({
 
                 if (action.onClick) {
                   return (
-                    <Wrapper key={index}>
+                    <Fragment key={actionIndex}>
+                      <Wrapper>
+                        <DropdownMenu.Item
+                          disabled={action.disabled}
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            action.onClick()
+                          }}
+                          className={clx(
+                            "[&_svg]:text-ui-fg-subtle flex items-center gap-x-2",
+                            {
+                              "text-ui-fg-error [&_svg]:text-ui-fg-error":
+                                action.destructive,
+                              "[&_svg]:text-ui-fg-disabled": action.disabled,
+                            }
+                          )}
+                        >
+                          {action.icon}
+                          <span>{action.label}</span>
+                        </DropdownMenu.Item>
+                      </Wrapper>
+                      {!isLastAction && <DropdownMenu.Separator />}
+                    </Fragment>
+                  )
+                }
+
+                return (
+                  <Fragment key={actionIndex}>
+                    <Wrapper>
                       <DropdownMenu.Item
-                        disabled={action.disabled}
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          action.onClick()
-                        }}
                         className={clx(
                           "[&_svg]:text-ui-fg-subtle flex items-center gap-x-2",
                           {
@@ -93,34 +118,20 @@ export const ActionMenu = ({
                             "[&_svg]:text-ui-fg-disabled": action.disabled,
                           }
                         )}
+                        asChild
+                        disabled={action.disabled}
                       >
-                        {action.icon}
-                        <span>{action.label}</span>
+                        <Link
+                          to={action.to}
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          {action.icon}
+                          <span>{action.label}</span>
+                        </Link>
                       </DropdownMenu.Item>
                     </Wrapper>
-                  )
-                }
-
-                return (
-                  <Wrapper key={index}>
-                    <DropdownMenu.Item
-                      className={clx(
-                        "[&_svg]:text-ui-fg-subtle flex items-center gap-x-2",
-                        {
-                          "text-ui-fg-error [&_svg]:text-ui-fg-error":
-                            action.destructive,
-                          "[&_svg]:text-ui-fg-disabled": action.disabled,
-                        }
-                      )}
-                      asChild
-                      disabled={action.disabled}
-                    >
-                      <Link to={action.to} onClick={(e) => e.stopPropagation()}>
-                        {action.icon}
-                        <span>{action.label}</span>
-                      </Link>
-                    </DropdownMenu.Item>
-                  </Wrapper>
+                    {!isLastAction && <DropdownMenu.Separator />}
+                  </Fragment>
                 )
               })}
               {!isLast && <DropdownMenu.Separator />}
