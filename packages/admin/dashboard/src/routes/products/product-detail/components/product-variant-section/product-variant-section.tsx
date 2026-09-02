@@ -115,30 +115,26 @@ export const ProductVariantSection = ({
           to: `variants/create`,
         }}
         actionMenu={{
-          groups: [
+          actions: [
             {
-              actions: [
-                {
-                  label: t("products.editPrices"),
-                  to: `prices`,
-                  icon: <PencilSquare />,
-                },
-                {
-                  label: t("inventory.stock.action"),
-                  to: `stock`,
-                  icon: <Buildings />,
-                },
-                ...(isTranslationsEnabled
-                  ? [
-                      {
-                        icon: <GlobeEurope />,
-                        label: t("translations.actions.manage"),
-                        to: `/settings/translations/edit?reference=product_variant&${translationParams.toString()}`,
-                      },
-                    ]
-                  : []),
-              ],
+              label: t("products.editPrices"),
+              to: `prices`,
+              icon: <PencilSquare />,
             },
+            {
+              label: t("inventory.stock.action"),
+              to: `stock`,
+              icon: <Buildings />,
+            },
+            ...(isTranslationsEnabled
+              ? [
+                  {
+                    icon: <GlobeEurope />,
+                    label: t("translations.actions.manage"),
+                    to: `/settings/translations/edit?reference=product_variant&${translationParams.toString()}`,
+                  },
+                ]
+              : []),
           ],
         }}
         commands={commands}

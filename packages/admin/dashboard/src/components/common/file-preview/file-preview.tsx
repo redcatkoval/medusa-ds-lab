@@ -1,6 +1,6 @@
 import { ArrowDownTray, Spinner } from "@medusajs/icons"
 import { IconButton, Text } from "@medusajs/ui"
-import { ActionGroup, ActionMenu } from "../action-menu"
+import { Action, ActionMenu } from "../action-menu"
 
 export const FilePreview = ({
   filename,
@@ -14,7 +14,7 @@ export const FilePreview = ({
   url?: string
   loading?: boolean
   activity?: string
-  actions?: ActionGroup[]
+  actions?: Action[]
   hideThumbnail?: boolean
 }) => {
   return (
@@ -44,7 +44,7 @@ export const FilePreview = ({
         </div>
 
         {loading && <Spinner className="animate-spin" />}
-        {!loading && actions && <ActionMenu groups={actions} />}
+        {!loading && actions && <ActionMenu groups={[{ actions }]} />}
         {!loading && url && (
           <IconButton variant="transparent" asChild>
             <a href={url} download={filename ?? `${Date.now()}`}>

@@ -514,36 +514,24 @@ function FulfillmentSet(props: FulfillmentSetProps) {
     })
   }
 
-  const groups = fulfillmentSet
+  const actions = fulfillmentSet
     ? [
         {
-          actions: [
-            {
-              icon: <Plus />,
-              label: t("stockLocations.serviceZones.create.action"),
-              to: `/settings/locations/${locationId}/fulfillment-set/${fulfillmentSet.id}/service-zones/create`,
-            },
-          ],
+          icon: <Plus />,
+          label: t("stockLocations.serviceZones.create.action"),
+          to: `/settings/locations/${locationId}/fulfillment-set/${fulfillmentSet.id}/service-zones/create`,
         },
         {
-          actions: [
-            {
-              icon: <Trash />,
-              label: t("actions.disable"),
-              onClick: handleDelete,
-            },
-          ],
+          icon: <Trash />,
+          label: t("actions.disable"),
+          onClick: handleDelete,
         },
       ]
     : [
         {
-          actions: [
-            {
-              icon: <Plus />,
-              label: t("actions.enable"),
-              onClick: handleCreate,
-            },
-          ],
+          icon: <Plus />,
+          label: t("actions.enable"),
+          onClick: handleCreate,
         },
       ]
 
@@ -561,7 +549,7 @@ function FulfillmentSet(props: FulfillmentSetProps) {
               )}
             </StatusBadge>
 
-            <ActionMenu groups={groups} />
+            <ActionMenu groups={[{ actions }]} />
           </div>
         </div>
 
