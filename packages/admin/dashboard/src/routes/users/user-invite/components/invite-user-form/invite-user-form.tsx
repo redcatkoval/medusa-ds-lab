@@ -318,6 +318,7 @@ const InviteActions = ({ invite }: { invite: HttpTypes.AdminInvite }) => {
         },
         {
           icon: <Trash />,
+          destructive: true,
           label: t("actions.delete"),
           onClick: handleDelete,
         },

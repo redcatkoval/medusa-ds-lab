@@ -170,6 +170,7 @@ export const CustomerActions = ({
         },
         {
           icon: <Trash />,
+          destructive: true,
           label: t("actions.remove"),
           onClick: handleRemove,
         },

@@ -74,6 +74,7 @@ export const PolicyGeneralSection = ({ policy }: PolicyGeneralSectionProps) => {
                   ),
                 }, {
                   icon: <Trash />,
+                  destructive: true,
                   label: t("actions.delete"),
                   onClick: handleDelete,
                   disabled: !canDelete || isDeleting,

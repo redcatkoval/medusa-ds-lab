@@ -87,6 +87,7 @@ export const CustomerGeneralSection = ({
     actions.push({
       label: t("actions.delete"),
       icon: <Trash />,
+      destructive: true,
       onClick: handleDelete,
     })
   }

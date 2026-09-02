@@ -101,6 +101,7 @@ export const TaxOverrideCard = ({ taxRate }: TaxOverrideCardProps) => {
               {
                 label: t("actions.delete"),
                 icon: <Trash />,
+                destructive: true,
                 onClick: handleDelete,
               },
             ]}

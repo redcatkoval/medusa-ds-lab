@@ -36,6 +36,7 @@ export const InventoryActions = ({ item }: { item: AdminInventoryItem }) => {
         },
         {
           icon: <Trash />,
+          destructive: true,
           label: t("actions.delete"),
           onClick: handleDelete,
         },

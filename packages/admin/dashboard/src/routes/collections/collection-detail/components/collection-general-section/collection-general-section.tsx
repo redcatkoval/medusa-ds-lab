@@ -61,6 +61,7 @@ export const CollectionGeneralSection = ({
               : []),
             {
               icon: <Trash />,
+              destructive: true,
               label: t("actions.delete"),
               onClick: handleDelete,
               disabled: !collection.id,

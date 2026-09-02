@@ -222,6 +222,7 @@ export const CustomerGroupRowActions = ({
       label: t("actions.remove"),
       onClick: onRemove,
       icon: <Trash />,
+      destructive: true,
     })
   }
 

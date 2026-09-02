@@ -121,6 +121,7 @@ const RegionActions = ({ region }: { region: HttpTypes.AdminRegion }) => {
         },
         {
           icon: <Trash />,
+          destructive: true,
           label: t("actions.delete"),
           onClick: handleDelete,
         },

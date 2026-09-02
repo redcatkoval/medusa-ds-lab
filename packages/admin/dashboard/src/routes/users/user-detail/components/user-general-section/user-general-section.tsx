@@ -100,6 +100,7 @@ export const UserGeneralSection = ({ user }: UserGeneralSectionProps) => {
               label: t("actions.delete"),
               onClick: handleDeleteUser,
               icon: <Trash />,
+              destructive: true,
             },
           ]}
         />

@@ -217,6 +217,7 @@ export const ProductRowAction = ({
         },
         {
           icon: <Trash />,
+          destructive: true,
           label: t("actions.remove"),
           onClick: handleDelete,
         },

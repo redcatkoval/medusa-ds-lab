@@ -178,6 +178,7 @@ function ShippingOption({
           {
             label: t("actions.delete"),
             icon: <Trash />,
+            destructive: true,
             onClick: handleDelete,
           },
         ]}
@@ -412,6 +413,7 @@ function ServiceZone({
               {
                 label: t("actions.delete"),
                 icon: <Trash />,
+                destructive: true,
                 onClick: handleDelete,
               },
             ]}
@@ -506,6 +508,7 @@ function FulfillmentSet(props: FulfillmentSetProps) {
         },
         {
           icon: <Trash />,
+          destructive: true,
           label: t("actions.disable"),
           onClick: handleDelete,
         },
@@ -619,6 +622,7 @@ const Actions = ({ location }: { location: HttpTypes.AdminStockLocation }) => {
         },
         {
           icon: <Trash />,
+          destructive: true,
           label: t("actions.delete"),
           onClick: handleDelete,
         },

@@ -47,6 +47,7 @@ export const ProductOptionValueRowActions = ({
       actions={[
         {
           icon: <Trash />,
+          destructive: true,
           label: t("actions.delete"),
           onClick: handleDelete,
         },

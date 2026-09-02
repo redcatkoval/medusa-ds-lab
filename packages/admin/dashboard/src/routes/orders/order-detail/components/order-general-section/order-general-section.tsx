@@ -82,6 +82,7 @@ export const OrderGeneralSection = ({ order }: OrderGeneralSectionProps) => {
               onClick: handleCancel,
               disabled: !!order.canceled_at,
               icon: <XCircle />,
+              destructive: true,
             },
           ]}
         />

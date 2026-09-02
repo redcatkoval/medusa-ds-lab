@@ -96,6 +96,7 @@ export const PromotionGeneralSection = ({
               },
               {
                 icon: <Trash />,
+                destructive: true,
                 label: t("actions.delete"),
                 onClick: handleDelete,
               },

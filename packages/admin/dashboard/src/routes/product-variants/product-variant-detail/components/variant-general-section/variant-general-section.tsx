@@ -81,6 +81,7 @@ export function VariantGeneralSection({ variant }: VariantGeneralSectionProps) {
                 label: t("actions.delete"),
                 onClick: handleDelete,
                 icon: <Trash />,
+                destructive: true,
               },
             ]}
           />

@@ -82,6 +82,7 @@ export const CampaignGeneralSection = ({
               },
               {
                 icon: <Trash />,
+                destructive: true,
                 label: t("actions.delete"),
                 onClick: handleDelete,
               },

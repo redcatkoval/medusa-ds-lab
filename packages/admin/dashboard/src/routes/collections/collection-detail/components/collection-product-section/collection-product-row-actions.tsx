@@ -56,6 +56,7 @@ export const CollectionProductRowActions = ({
         },
         {
           icon: <Trash />,
+          destructive: true,
           label: t("actions.remove"),
           onClick: handleRemove,
         },

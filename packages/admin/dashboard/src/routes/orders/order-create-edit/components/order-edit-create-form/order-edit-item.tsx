@@ -242,6 +242,7 @@ function OrderEditItem({ item, currencyCode, orderId }: OrderEditItemProps) {
                       label: t("actions.remove"),
                       onClick: onRemove,
                       icon: <XCircle />,
+                      destructive: true,
                       disabled:
                         item.detail.fulfilled_quantity === item.quantity,
                     }

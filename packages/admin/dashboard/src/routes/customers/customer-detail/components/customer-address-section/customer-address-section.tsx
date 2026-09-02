@@ -93,6 +93,7 @@ export const CustomerAddressSection = ({
                 actions={[
                   {
                     icon: <Trash />,
+                    destructive: true,
                     label: t("actions.delete"),
                     onClick: async () => {
                       await handleDelete(address)

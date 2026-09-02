@@ -66,6 +66,7 @@ const TaxRateActions = ({ taxRate }: { taxRate: HttpTypes.AdminTaxRate }) => {
         {
           label: t("actions.delete"),
           icon: <Trash />,
+          destructive: true,
           onClick: handleDelete,
         },
       ]}

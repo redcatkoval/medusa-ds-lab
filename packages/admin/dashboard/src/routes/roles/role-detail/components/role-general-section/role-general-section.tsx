@@ -110,6 +110,7 @@ export const RoleGeneralSection = ({ role }: RoleGeneralSectionProps) => {
   if (canDelete) {
     actions.push({
       icon: <Trash />,
+      destructive: true,
       label: t("actions.delete"),
       onClick: handleDelete,
       disabled: isDeleting,
