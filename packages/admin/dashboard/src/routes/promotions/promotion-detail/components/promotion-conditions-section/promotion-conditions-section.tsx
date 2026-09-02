@@ -1,9 +1,8 @@
-import { PencilSquare } from "@medusajs/icons"
 import { ApplicationMethodTargetTypeValues } from "@medusajs/types"
-import { Badge, Container, Heading } from "@medusajs/ui"
+import { Badge, Button, Container, Heading } from "@medusajs/ui"
 import { useTranslation } from "react-i18next"
+import { Link } from "react-router-dom"
 
-import { ActionMenu } from "../../../../../components/common/action-menu"
 import { BadgeListSummary } from "../../../../../components/common/badge-list-summary"
 import { NoRecords } from "../../../../../components/common/empty-table-content"
 import { ExtendedPromotionRule } from "../../promotion-detail"
@@ -69,15 +68,9 @@ export const PromotionConditionsSection = ({
           </Heading>
         </div>
 
-        <ActionMenu
-          actions={[
-            {
-              icon: <PencilSquare />,
-              label: t("actions.edit"),
-              to: `${ruleType}/edit`,
-            },
-          ]}
-        />
+        <Button size="small" variant="secondary" asChild>
+          <Link to={`${ruleType}/edit`}>{t("actions.edit")}</Link>
+        </Button>
       </div>
 
       <div className="text-ui-fg-subtle flex flex-col gap-2 px-6 pb-4 pt-2">

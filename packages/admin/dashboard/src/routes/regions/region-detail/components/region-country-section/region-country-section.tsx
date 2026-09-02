@@ -1,6 +1,13 @@
-import { PlusMini, Trash } from "@medusajs/icons"
+import { Trash } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
-import { Checkbox, Container, Heading, toast, usePrompt } from "@medusajs/ui"
+import {
+  Button,
+  Checkbox,
+  Container,
+  Heading,
+  toast,
+  usePrompt,
+} from "@medusajs/ui"
 import {
   ColumnDef,
   RowSelectionState,
@@ -8,6 +15,7 @@ import {
 } from "@tanstack/react-table"
 import { useMemo, useState } from "react"
 import { useTranslation } from "react-i18next"
+import { Link } from "react-router-dom"
 import { ActionMenu } from "../../../../../components/common/action-menu"
 import { _DataTable } from "../../../../../components/table/data-table"
 import { useUpdateRegion } from "../../../../../hooks/api/regions"
@@ -102,15 +110,9 @@ export const RegionCountrySection = ({ region }: RegionCountrySectionProps) => {
     <Container className="divide-y p-0">
       <div className="flex items-center justify-between px-6 py-4">
         <Heading level="h2">{t("fields.countries")}</Heading>
-        <ActionMenu
-          actions={[
-            {
-              label: t("regions.addCountries"),
-              icon: <PlusMini />,
-              to: "countries/add",
-            },
-          ]}
-        />
+        <Button size="small" variant="secondary" asChild>
+          <Link to="countries/add">{t("regions.addCountries")}</Link>
+        </Button>
       </div>
       <_DataTable
         table={table}

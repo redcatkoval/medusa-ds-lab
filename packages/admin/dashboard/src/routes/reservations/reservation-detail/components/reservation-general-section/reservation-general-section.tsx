@@ -1,12 +1,11 @@
 import { AdminReservationResponse } from "@medusajs/types"
-import { Container, Heading } from "@medusajs/ui"
+import { Button, Container, Heading } from "@medusajs/ui"
 
-import { ActionMenu } from "../../../../../components/common/action-menu"
-import { PencilSquare } from "@medusajs/icons"
 import { SectionRow } from "../../../../../components/common/section"
 import { useInventoryItem } from "../../../../../hooks/api/inventory"
 import { useStockLocation } from "../../../../../hooks/api/stock-locations"
 import { useTranslation } from "react-i18next"
+import { Link } from "react-router-dom"
 import { formatQuantity } from "../../../../../lib/format-quantity"
 
 type ReservationGeneralSectionProps = {
@@ -45,15 +44,9 @@ export const ReservationGeneralSection = ({
             itemName: inventoryItem.title ?? inventoryItem.sku,
           })}
         </Heading>
-        <ActionMenu
-          actions={[
-            {
-              icon: <PencilSquare />,
-              label: t("actions.edit"),
-              to: `edit`,
-            },
-          ]}
-        />
+        <Button size="small" variant="secondary" asChild>
+          <Link to={`edit`}>{t("actions.edit")}</Link>
+        </Button>
       </div>
       <SectionRow
         title={t("inventory.reservation.lineItemId")}

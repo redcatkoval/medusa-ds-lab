@@ -1,9 +1,9 @@
-import { Channels, PencilSquare } from "@medusajs/icons"
+import { Channels } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
-import { Container, Heading, Text } from "@medusajs/ui"
+import { Button, Container, Heading, Text } from "@medusajs/ui"
 import { useTranslation } from "react-i18next"
+import { Link } from "react-router-dom"
 
-import { ActionMenu } from "../../../../../components/common/action-menu"
 import { NoRecords } from "../../../../../components/common/empty-table-content"
 import { IconAvatar } from "../../../../../components/common/icon-avatar"
 import { ListSummary } from "../../../../../components/common/list-summary"
@@ -25,15 +25,9 @@ function LocationsSalesChannelsSection({
     <Container className="flex flex-col px-6 py-4">
       <div className="flex items-center justify-between">
         <Heading level="h2">{t("stockLocations.salesChannels.header")}</Heading>
-        <ActionMenu
-          actions={[
-            {
-              label: t("actions.edit"),
-              to: "sales-channels",
-              icon: <PencilSquare />,
-            },
-          ]}
-        />
+        <Button size="small" variant="secondary" asChild>
+          <Link to="sales-channels">{t("actions.edit")}</Link>
+        </Button>
       </div>
       {hasConnectedChannels ? (
         <div className="flex flex-col gap-y-4 pt-4">

@@ -1,11 +1,10 @@
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
+import { Link } from "react-router-dom"
 
-import { CurrencyDollar } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
 import { Button, Container, Heading } from "@medusajs/ui"
 
-import { ActionMenu } from "../../../../../components/common/action-menu"
 import { NoRecords } from "../../../../../components/common/empty-table-content"
 import { getLocaleAmount } from "../../../../../lib/money-amount-helpers"
 
@@ -35,15 +34,13 @@ export function VariantPricesSection({ variant }: VariantPricesSectionProps) {
     <Container className="flex flex-col divide-y p-0">
       <div className="flex items-center justify-between px-6 py-4">
         <Heading level="h2">{t("labels.prices")}</Heading>
-        <ActionMenu
-          actions={[
-            {
-              label: t("actions.edit"),
-              to: `/products/${variant.product_id}/variants/${variant.id}/prices`,
-              icon: <CurrencyDollar />,
-            },
-          ]}
-        />
+        <Button size="small" variant="secondary" asChild>
+          <Link
+            to={`/products/${variant.product_id}/variants/${variant.id}/prices`}
+          >
+            {t("actions.edit")}
+          </Link>
+        </Button>
       </div>
       {!hasPrices && <NoRecords className="h-60" />}
       {displayPrices?.map((price) => {

@@ -1,7 +1,7 @@
-import { Channels, PencilSquare } from "@medusajs/icons"
-import { Container, Heading, Text, Tooltip } from "@medusajs/ui"
+import { Channels } from "@medusajs/icons"
+import { Button, Container, Heading, Text, Tooltip } from "@medusajs/ui"
 import { Trans, useTranslation } from "react-i18next"
-import { ActionMenu } from "../../../../../components/common/action-menu"
+import { Link } from "react-router-dom"
 import { useSalesChannels } from "../../../../../hooks/api/sales-channels"
 import { HttpTypes } from "@medusajs/types"
 
@@ -33,15 +33,9 @@ export const ProductSalesChannelSection = ({
     <Container className="flex flex-col gap-y-4 px-6 py-4">
       <div className="flex items-center justify-between">
         <Heading level="h2">{t("fields.sales_channels")}</Heading>
-        <ActionMenu
-          actions={[
-            {
-              label: t("actions.edit"),
-              to: "sales-channels",
-              icon: <PencilSquare />,
-            },
-          ]}
-        />
+        <Button size="small" variant="secondary" asChild>
+          <Link to="sales-channels">{t("actions.edit")}</Link>
+        </Button>
       </div>
       <div className="grid grid-cols-[28px_1fr] items-center gap-x-3">
         <div className="bg-ui-bg-base shadow-borders-base flex size-7 items-center justify-center rounded-md">

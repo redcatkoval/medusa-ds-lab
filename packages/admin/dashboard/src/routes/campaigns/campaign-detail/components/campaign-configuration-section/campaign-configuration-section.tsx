@@ -1,9 +1,8 @@
 import { HttpTypes } from "@medusajs/types"
-import { Container, Heading } from "@medusajs/ui"
+import { Button, Container, Heading } from "@medusajs/ui"
 
-import { PencilSquare } from "@medusajs/icons"
 import { useTranslation } from "react-i18next"
-import { ActionMenu } from "../../../../../components/common/action-menu"
+import { Link } from "react-router-dom"
 import { DateRangeDisplay } from "../../../../../components/common/date-range-display"
 
 type CampaignConfigurationSectionProps = {
@@ -19,15 +18,9 @@ export const CampaignConfigurationSection = ({
     <Container className="flex flex-col gap-y-4">
       <div className="flex items-center justify-between">
         <Heading level="h2">{t("campaigns.configuration.header")}</Heading>
-        <ActionMenu
-          actions={[
-            {
-              label: t("actions.edit"),
-              icon: <PencilSquare />,
-              to: "configuration",
-            },
-          ]}
-        />
+        <Button size="small" variant="secondary" asChild>
+          <Link to="configuration">{t("actions.edit")}</Link>
+        </Button>
       </div>
       <DateRangeDisplay
         startsAt={campaign.starts_at}

@@ -1,11 +1,17 @@
-import { Plus } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
-import { Checkbox, Container, Heading, toast, usePrompt } from "@medusajs/ui"
+import {
+  Button,
+  Checkbox,
+  Container,
+  Heading,
+  toast,
+  usePrompt,
+} from "@medusajs/ui"
 import { keepPreviousData } from "@tanstack/react-query"
 import { createColumnHelper } from "@tanstack/react-table"
 import { useMemo } from "react"
 import { useTranslation } from "react-i18next"
-import { ActionMenu } from "../../../../../components/common/action-menu"
+import { Link } from "react-router-dom"
 import { _DataTable } from "../../../../../components/table/data-table"
 import { useUpdateCollectionProducts } from "../../../../../hooks/api/collections"
 import { useProducts } from "../../../../../hooks/api/products"
@@ -101,15 +107,9 @@ export const CollectionProductSection = ({
     <Container className="divide-y p-0">
       <div className="flex items-center justify-between px-6 py-4">
         <Heading level="h2">{t("products.domain")}</Heading>
-        <ActionMenu
-          actions={[
-            {
-              icon: <Plus />,
-              label: t("actions.add"),
-              to: "products",
-            },
-          ]}
-        />
+        <Button size="small" variant="secondary" asChild>
+          <Link to="products">{t("actions.add")}</Link>
+        </Button>
       </div>
       <_DataTable
         table={table}

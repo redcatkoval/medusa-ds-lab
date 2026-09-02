@@ -1,14 +1,9 @@
-import {
-  FolderIllustration,
-  PencilSquare,
-  TriangleRightMini,
-} from "@medusajs/icons"
+import { FolderIllustration, TriangleRightMini } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
-import { Badge, Container, Heading, Text, Tooltip } from "@medusajs/ui"
+import { Badge, Button, Container, Heading, Text, Tooltip } from "@medusajs/ui"
 import { useMemo, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { Link } from "react-router-dom"
-import { ActionMenu } from "../../../../../components/common/action-menu"
 import { LinkButton } from "../../../../../components/common/link-button"
 import { Skeleton } from "../../../../../components/common/skeleton"
 import { useProductCategory } from "../../../../../hooks/api/categories"
@@ -27,15 +22,9 @@ export const CategoryOrganizeSection = ({
     <Container className="divide-y p-0">
       <div className="flex items-center justify-between px-6 py-4">
         <Heading level="h2">{t("categories.organize.header")}</Heading>
-        <ActionMenu
-          actions={[
-            {
-              label: t("categories.organize.action"),
-              icon: <PencilSquare />,
-              to: `organize`,
-            },
-          ]}
-        />
+        <Button size="small" variant="secondary" asChild>
+          <Link to={`organize`}>{t("categories.organize.action")}</Link>
+        </Button>
       </div>
       <div className="text-ui-fg-subtle grid grid-cols-2 items-start gap-3 px-6 py-4">
         <Text size="small" leading="compact" weight="plus">

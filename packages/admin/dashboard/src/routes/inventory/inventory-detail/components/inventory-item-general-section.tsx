@@ -1,9 +1,8 @@
-import { Container, Heading } from "@medusajs/ui"
+import { Button, Container, Heading } from "@medusajs/ui"
 import { HttpTypes } from "@medusajs/types"
-import { PencilSquare } from "@medusajs/icons"
 import { useTranslation } from "react-i18next"
+import { Link } from "react-router-dom"
 
-import { ActionMenu } from "../../../../components/common/action-menu"
 import { SectionRow } from "../../../../components/common/section"
 import { formatQuantity } from "../../../../lib/format-quantity"
 
@@ -31,15 +30,9 @@ export const InventoryItemGeneralSection = ({
         <Heading>
           {inventoryItem.title ?? inventoryItem.sku} {t("fields.details")}
         </Heading>
-        <ActionMenu
-          actions={[
-            {
-              icon: <PencilSquare />,
-              label: t("actions.edit"),
-              to: "edit",
-            },
-          ]}
-        />
+        <Button size="small" variant="secondary" asChild>
+          <Link to="edit">{t("actions.edit")}</Link>
+        </Button>
       </div>
       <SectionRow title={t("fields.sku")} value={inventoryItem.sku ?? "-"} />
       <SectionRow

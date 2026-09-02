@@ -1,8 +1,8 @@
-import { ChartPie, PencilSquare } from "@medusajs/icons"
+import { ChartPie } from "@medusajs/icons"
 import { AdminCampaign } from "@medusajs/types"
-import { Container, Heading, Text } from "@medusajs/ui"
+import { Button, Container, Heading, Text } from "@medusajs/ui"
 import { Trans, useTranslation } from "react-i18next"
-import { ActionMenu } from "../../../../../components/common/action-menu"
+import { Link } from "react-router-dom"
 
 type CampaignBudgetProps = {
   campaign: AdminCampaign
@@ -40,15 +40,9 @@ export const CampaignBudget = ({ campaign }: CampaignBudgetProps) => {
           <Heading level="h2">{getTranslation()}</Heading>
         </div>
 
-        <ActionMenu
-          actions={[
-            {
-              icon: <PencilSquare />,
-              label: t("actions.edit"),
-              to: `edit-budget`,
-            },
-          ]}
-        />
+        <Button size="small" variant="secondary" asChild>
+          <Link to={`edit-budget`}>{t("actions.edit")}</Link>
+        </Button>
       </div>
 
       <div>
