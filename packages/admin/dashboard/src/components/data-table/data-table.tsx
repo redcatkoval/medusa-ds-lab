@@ -426,11 +426,11 @@ export const DataTable = <TData,>({
                 />
               </div>
             )}
-            {actionMenu && <ActionMenu actions={actionMenu.actions} />}
             {actions && actions.length > 0 && (
               <DataTableActions actions={actions} />
             )}
             {!actions && action && <DataTableAction {...action} />}
+            {actionMenu && <ActionMenu actions={actionMenu.actions} />}
           </div>
         </div>
       </UiDataTable.Toolbar>
